@@ -3,7 +3,7 @@
 # 📜 README.md
 
 <p align="center">
-  <img src="https://www.pinterest.com/pin/triforce-mandala-tattoo-design--151785449936172295/" alt="Zelda Divider" width="300"/>
+  <img src="logoReadMe.jpg" alt="Zelda Divider" width="300"/>
 </p>
 
 ## 📖 O Prólogo do Portal
