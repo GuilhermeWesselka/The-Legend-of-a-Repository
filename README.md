@@ -3,7 +3,7 @@
 # 📜 README.md
 
 <p align="center">
-  <img src="https://githubusercontent.com" alt="Zelda Divider" width="300"/>
+  <img src="https://www.pinterest.com/pin/triforce-mandala-tattoo-design--151785449936172295/" alt="Zelda Divider" width="300"/>
 </p>
 
 ## 📖 O Prólogo do Portal
@@ -38,16 +38,16 @@ Bem-vindo ao **[Nome do Seu Site]**, um refúgio forjado por fãs e para fãs da
 
 ### 🗺️ O que você encontrará nesta jornada:
 * **Crônicas das Eras:** Conteúdos detalhados sobre múltiplos jogos da franquia.
-* **Galeria dos Sábios:** Espaço dedicado à comunidade, teorias e artes dos fãs.
+* **Galeria dos Sábios:** Espaço dedicado à comunidade, e ao apreço pela história de Zelda.
 * **Bússola do Viajante:** Guias, curiosidades e segredos escondidos por Hyrule.
 
 ## 🛠️ Ferramentas dos Sábios (Tecnologias)
 
 Para erguer esta estrutura capazes de resistir ao avanço de Ganondorf, utilizamos os seguintes artefatos:
 
-* 🔮 **Frontend:** HTML5, CSS3, JavaScript (ou insira seu framework aqui, ex: React / Vue)
-* 🛡️ **Estilização:** TailwindCSS / Sass
-* 📜 **Banco de Dados:** (Se houver, ex: Firebase / PostgreSQL)
+* 🔮 **Frontend:** HTML / CSS / JavaScript
+* 🛡️ **Estilização:** CSS
+* 📜 **Banco de Dados:** MySQL
 
 ## 🚀 Como Iniciar sua Própria Jornada
 
