@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0; /* Zera o padding e margin padrão dos elementos */
+    box-sizing: border-box; 
+    /* Mantém o width/height do elemento quando é adicionado padding ou border */
+    scroll-behavior: smooth; /* Deixa o scrool suave */
+}
+
+.navbar {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+}
+
+.nav-items {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    font-size: 15px;
+}
