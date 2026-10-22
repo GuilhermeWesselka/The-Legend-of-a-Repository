@@ -34,7 +34,7 @@ Para que os feitos do Herói do Tempo, do Herói dos Ventos, do Herói dos Céus
 
 ## 🏰 Sobre o Santuário (O Projeto)
 
-Bem-vindo ao **[Nome do Seu Site]**, um refúgio forjado por fãs e para fãs da franquia **The Legend of Zelda**. Este site foi desenvolvido para celebrar cada era, cada masmorra e cada canção que moldou nossas jornadas pelos jogos da Nintendo.
+Bem-vindo ao **[Hyrule Memorium]**, um refúgio forjado por fãs e para fãs da franquia **The Legend of Zelda**. Este site foi desenvolvido para celebrar cada era, cada masmorra e cada canção que moldou nossas jornadas pelos jogos da Nintendo.
 
 ### 🗺️ O que você encontrará nesta jornada:
 * **Crônicas das Eras:** Conteúdos detalhados sobre múltiplos jogos da franquia.
