@@ -6,16 +6,9 @@
     scroll-behavior: smooth; /* Deixa o scrool suave */
 }
 
-.navbar {
-    padding: 20px;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    font-size: 15px;
-}
-/* fundo principal do site*/
+/* background central do site*/
 .background {
-    background-image: url('./assets/fundoTwili.png');
+    background-image: url('./assets/testefundo.png');
     width: 100%;
     background-size: cover;
     background-position: center;
@@ -23,74 +16,90 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
-    height: 100vh;
-    color: #ffffff;
-    padding: 0 20px;
-    text-align: center;
+    height: 940px;
 }
 
-.navbar a {
-    gap: 20px;
-    color: #fff;
+/* estilização da navbar*/
+.navbar {
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center;
+    padding: 20px 40px;
 }
 
-/* container que agrupa os links */
+
 .nav-items {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    gap: 30px;
-    padding: 25px;
+    align-items: center;
+    gap: 20px;
 }
 
-/* estilização individual de cada botão/link */
+/* estilização padrão dos demais links */
 .nav-items a {
     color: #ffd700;
     font-family: sans-serif;
-    text-decoration: dashed;
+    text-decoration: none;
     font-size: 15px;
     font-weight: bold;
-    transition: color 0.9s;
+    transition: all 0.6s ease;
+    
 }
 
 .nav-items a:hover {
     color: #eea208;
 }
 
-.btns-nav {
-
-    display: flex;
-    gap: 10px;
-    margin-left: 20px;
-}
-
-/* botão de login*/
-.btn-login {
-    padding: 12px 20px;
-    background-color:rgba(215, 154, 0, 0.386);
-    border: 1px solid rgba(255, 251, 240, 0.505);;
-    color: #ffd700;
+/* estilização do link login*/
+.nav-items a.btn-login {
+    padding: 10px 20px;
+    background-color: rgba(215, 154, 0, 0.386);
+    border: 1px solid rgba(255, 251, 240, 0.505);
     border-radius: 15px;
-    transition: ease 0.9s;
 }
 
-.btn-login:hover {
+.nav-items a.btn-login:hover {
     background-color: rgb(0, 0, 0);
     color: #eea208;
 }
 
-.btn-cadastro {
-    padding: 12px 20px;
+/* estilização do link cadastro*/
+.nav-items a.btn-cadastro {
+    padding: 10px 20px;
+     color: #08e6ee;
     background-color: rgba(5, 25, 24, 0.337);
-    color: #ffd700;
-    border:1px solid #eea10875;
-    font-weight: 700;
+    border: 1px solid #08eee275;
     border-radius: 15px;
-    transition: ease 0.9s;
-    cursor: pointer;
 }
 
-.btn-cadastro:hover {
+.nav-items a.btn-cadastro:hover {
     color: rgb(0, 234, 207);
-    background-color:rgb(0, 74, 64);
+    background-color: rgb(0, 74, 64);
+}
+
+/* conteudo central da home*/
+.conteudo-centro {
+display: flex;
+justify-content: center;
+align-items: center;
+padding-bottom: 60px;
+}
+
+.img-centro {
+    max-width: 400px;
+    height: auto;
+    display: flex;
+    justify-self: center;
+    animation: girarEspelho 40s linear infinite; /* essa função faz a imagem girar por 40 segundos de forma infinita*/
+}
+
+/* animação do espelho twili*/
+@keyframes girarEspelho {
+    from { /* funciona de forma semelhante ao while*/
+        transform: rotate(0deg); /* roda do sentido horário de 0 à 360*/
+    }
+    to {
+        transform: rotate(360deg);
+    }
+    
 }
