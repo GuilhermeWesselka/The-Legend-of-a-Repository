@@ -97,10 +97,10 @@ padding-bottom: 60px;
 /* animação do espelho twili*/
 @keyframes girarEspelho {
     from { /* funciona de forma semelhante ao while*/
-        transform: rotate(0deg); /* roda do sentido horário de 0 à 360*/
+        transform: rotate(0deg); /* muda o elemento html forma*/
     }
     to {
-        transform: rotate(360deg);
+        transform: rotate(360deg); /* roda do sentido horário de 0 à 360*/
     }
     
 }
