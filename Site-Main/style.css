@@ -9,14 +9,60 @@
 /* background central do site*/
 .background {
     background-image: url('./assets/testefundo.png');
-    width: 100%;
+    min-width: 100%;
     background-size: cover;
     background-position: center;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
-    height: 940px;
+    min-height: 150vh;
+}
+
+/*fontes do site*/
+@font-face {
+    font-family: 'HyliaSerif';
+    src: url('fontes/HyliaSerifBeta-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/*colinha para os tipos de fontes
+• .otf -> format('opentype')
+• .ttf -> format('truetype')
+• .woff -> format('woff')
+• .woff2 -> format('woff2')
+*/
+
+@font-face {
+    font-family: 'HylianSymbols';
+    src: url('fontes/HylianSymbols.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'BotwFont';
+    src: url('fontes/The Wild Breath of Zelda.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+h2 {
+    font-family: 'HyliaSerif', serif;
+    color: #e6b122;
+    font-size: 80px;
+    letter-spacing: 1px; /*faz o espaçamento clássico dos jogos*/
+}
+
+h3 {
+    font-family: 'BotwFont', serif;
+    color: #ffff;
+    font-size: 20px;
+    letter-spacing: 1px; /*faz o espaçamento clássico dos jogos*/
 }
 
 /* estilização da navbar*/
@@ -41,6 +87,8 @@
     font-family: sans-serif;
     text-decoration: none;
     font-size: 15px;
+    font-family: 'BotwFont';
+    letter-spacing: 1px;
     font-weight: bold;
     transition: 0.6s ease;
     
@@ -54,6 +102,7 @@
 .nav-items a.btn-login {
     padding: 10px 20px;
     background-color: rgba(215, 154, 0, 0.386);
+    font-family: 'BotwFont';
     border: 1px solid rgba(255, 251, 240, 0.505);
     border-radius: 15px;
 }
@@ -66,7 +115,8 @@
 /* estilização do link cadastro*/
 .nav-items a.btn-cadastro {
     padding: 10px 20px;
-     color: #08e6ee;
+    color: #08e6ee;
+    font-family: 'BotwFont';
     background-color: rgba(5, 25, 24, 0.337);
     border: 1px solid #08eee275;
     border-radius: 15px;
@@ -109,6 +159,14 @@ padding-bottom: 60px;
     display: flex;
     justify-content: center;
     color: #ffff;
-    padding-top: 40px;
+    padding-top: 20px;
     font-size: 35px;
+}
+
+.mini_txt-centro {
+    font-family: 'BotwFont';
+    display: flex;
+    font-size: 30px;
+    line-height: 1.5;
+    justify-content: center;
 }
