@@ -19,6 +19,18 @@
     min-height: 150vh;
 }
 
+/*Background do Sobre Twilight*/
+.background-twilight {
+    background-image: url('./assets/twilightMoon.png');
+    min-width: 100%;
+    background-size: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+}
+
 /*fontes do site*/
 @font-face {
     font-family: 'HyliaSerif';
@@ -44,6 +56,14 @@
 }
 
 @font-face {
+    font-family: 'TriforceFont';
+    src: url('fontes/Triforce.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
     font-family: 'BotwFont';
     src: url('fontes/The Wild Breath of Zelda.otf') format('opentype');
     font-weight: normal;
@@ -59,7 +79,7 @@ h2 {
 }
 
 h3 {
-    font-family: 'BotwFont', serif;
+    font-family: 'TriforceFont', serif;
     color: #ffff;
     font-size: 20px;
     letter-spacing: 1px; /*faz o espaçamento clássico dos jogos*/
@@ -86,7 +106,7 @@ h3 {
     color: #ffd700;
     font-family: sans-serif;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 20px;
     font-family: 'BotwFont';
     letter-spacing: 1px;
     font-weight: bold;
@@ -129,10 +149,10 @@ h3 {
 
 /* conteudo central da home*/
 .conteudo-centro {
-display: flex;
-justify-content: center;
-align-items: center;
-padding-bottom: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 60px;
 }
 
 .img-centro {
@@ -169,4 +189,21 @@ padding-bottom: 60px;
     font-size: 30px;
     line-height: 1.5;
     justify-content: center;
+}
+
+/*Conteúdo sobre Twilight Princess*/
+.LogoTwilight {
+    max-width: 900px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-self: center;
+    margin-top: 10px;
+    padding-top: 30px;
+}
+.txt-twilight h3{
+    display: flex;
+    justify-content: center;
+    color: #ffaf02f6;
+    font-size: 26px;
 }
