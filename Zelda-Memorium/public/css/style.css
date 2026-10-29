@@ -1,0 +1,209 @@
+* {
+    margin: 0;
+    padding: 0; /* Zera o padding e margin padrão dos elementos */
+    box-sizing: border-box; 
+    /* Mantém o width/height do elemento quando é adicionado padding ou border */
+    scroll-behavior: smooth; /* Deixa o scrool suave */
+}
+
+/* background central do site*/
+.background {
+    background-image: url('../assets/testefundo.png');
+    min-width: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    min-height: 150vh;
+}
+
+/*Background do Sobre Twilight*/
+.background-twilight {
+    background-image: url('../assets/twilightMoon.png');
+    min-width: 100%;
+    background-size: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/*fontes do site*/
+@font-face {
+    font-family: 'HyliaSerif';
+    src: url('../fontes/HyliaSerifBeta-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/*colinha para os tipos de fontes
+• .otf -> format('opentype')
+• .ttf -> format('truetype')
+• .woff -> format('woff')
+• .woff2 -> format('woff2')
+*/
+
+@font-face {
+    font-family: 'HylianSymbols';
+    src: url('../fontes/HylianSymbols.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'TriforceFont';
+    src: url('../fontes/Triforce.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'BotwFont';
+    src: url('../fontes/The Wild Breath of Zelda.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+h2 {
+    font-family: 'HyliaSerif', serif;
+    color: #e6b122;
+    font-size: 80px;
+    letter-spacing: 1px; /*faz o espaçamento clássico dos jogos*/
+}
+
+h3 {
+    font-family: 'TriforceFont', serif;
+    color: #ffff;
+    font-size: 20px;
+    letter-spacing: 1px; /*faz o espaçamento clássico dos jogos*/
+}
+
+/* estilização da navbar*/
+.navbar {
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center;
+    padding: 20px 40px;
+}
+
+
+.nav-items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+/* estilização padrão dos demais links */
+.nav-items a {
+    color: #ffd700;
+    font-family: sans-serif;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: 'BotwFont';
+    letter-spacing: 1px;
+    font-weight: bold;
+    transition: 0.6s ease;
+    
+}
+
+.nav-items a:hover {
+    color: #eea208;
+}
+
+/* estilização do link login*/
+.nav-items a.btn-login {
+    padding: 10px 20px;
+    background-color: rgba(215, 154, 0, 0.386);
+    font-family: 'BotwFont';
+    border: 1px solid rgba(255, 251, 240, 0.505);
+    border-radius: 15px;
+}
+
+.nav-items a.btn-login:hover {
+    background-color: rgb(0, 0, 0);
+    color: #eea208;
+}
+
+/* estilização do link cadastro*/
+.nav-items a.btn-cadastro {
+    padding: 10px 20px;
+    color: #08e6ee;
+    font-family: 'BotwFont';
+    background-color: rgba(5, 25, 24, 0.337);
+    border: 1px solid #08eee275;
+    border-radius: 15px;
+}
+
+.nav-items a.btn-cadastro:hover {
+    background-color: rgb(0, 74, 64);
+    color: #00c3ff;
+}
+
+/* conteudo central da home*/
+.conteudo-centro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 60px;
+}
+
+.img-centro {
+    max-width: 400px;
+    height: auto;
+    display: flex;
+    justify-self: center;
+    padding-top: 20px;
+    animation: girarEspelho 40s linear infinite; /* essa função faz a imagem girar por 40 segundos de forma infinita*/
+}
+
+/* animação do espelho twili*/
+@keyframes girarEspelho {
+    from { /* funciona de forma semelhante ao while*/
+        transform: rotate(0deg); /* muda o elemento html forma*/
+    }
+    to {
+        transform: rotate(360deg); /* roda do sentido horário de 0 à 360*/
+    }
+    
+}
+/* texto exibido no centro da home*/
+.txt-centro {
+    display: flex;
+    justify-content: center;
+    color: #ffff;
+    padding-top: 20px;
+    font-size: 35px;
+}
+
+.mini_txt-centro {
+    font-family: 'BotwFont';
+    display: flex;
+    font-size: 30px;
+    line-height: 1.5;
+    justify-content: center;
+}
+
+/*Conteúdo sobre Twilight Princess*/
+.LogoTwilight {
+    max-width: 900px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-self: center;
+    margin-top: 10px;
+    padding-top: 30px;
+}
+.txt-twilight h3{
+    display: flex;
+    justify-content: center;
+    color: #ffaf02f6;
+    font-size: 26px;
+}
