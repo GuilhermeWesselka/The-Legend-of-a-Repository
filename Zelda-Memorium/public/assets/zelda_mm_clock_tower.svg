@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+    <defs>
+        <linearGradient id="bgGradMM2" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#080d1a" />
+            <stop offset="100%" stop-color="#121b2d" />
+        </linearGradient>
+        <linearGradient id="tribalOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ff4500" />
+            <stop offset="100%" stop-color="#ff8c00" />
+        </linearGradient>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="780" height="480" x="10" y="10" rx="14" ry="14" fill="url(#bgGradMM2)" stroke="#1a2636" stroke-width="2"/>
+    
+    <!-- Inner Border with Clockwork Segment Marks -->
+    <rect width="736" height="436" x="32" y="32" rx="10" ry="10" fill="none" stroke="#2e4057" stroke-width="1.5"/>
+    <rect width="724" height="424" x="38" y="38" rx="8" ry="8" fill="none" stroke="url(#tribalOrange)" stroke-width="1.5" stroke-dasharray="15,30" opacity="0.6"/>
+
+    <!-- Clock Tower Gears details in bottom corners -->
+    <circle cx="32" cy="468" r="40" fill="none" stroke="#2e4057" stroke-width="2" stroke-dasharray="6,6" opacity="0.4"/>
+    <circle cx="768" cy="468" r="40" fill="none" stroke="#2e4057" stroke-width="2" stroke-dasharray="6,6" opacity="0.4"/>
+
+    <!-- Majora's Mask Iconic Piercing Eyes Top Accent -->
+    <g transform="translate(400, 45) scale(0.9)">
+        <!-- Left Eye Structure -->
+        <path d="M -60,-15 C -30,-25 -10,0 -40,15 C -60,25 -80,0 -60,-15 Z" fill="#ffcc00" stroke="#d42a2a" stroke-width="3"/>
+        <circle cx="-45" cy="0" r="6" fill="#000000"/>
+        <circle cx="-43" cy="-2" r="2" fill="#ffffff"/>
+        
+        <!-- Right Eye Structure -->
+        <path d="M 60,-15 C 30,-25 10,0 40,15 C 60,25 80,0 60,-15 Z" fill="#ffcc00" stroke="#d42a2a" stroke-width="3"/>
+        <circle cx="45" cy="0" r="6" fill="#000000"/>
+        <circle cx="47" cy="-2" r="2" fill="#ffffff"/>
+        
+        <!-- Mask center bridge seam -->
+        <path d="M -10,-10 L 0,-20 L 10,-10 L 0,20 Z" fill="#2b113a" opacity="0.5"/>
+    </g>
+
+    <!-- Side Tribal Spikes flanking the card -->
+    <path d="M 32,200 L 20,220 L 32,240 L 20,260 L 32,280" fill="none" stroke="url(#tribalOrange)" stroke-width="2" opacity="0.5"/>
+    <path d="M 768,200 L 780,220 L 768,240 L 780,260 L 768,280" fill="none" stroke="url(#tribalOrange)" stroke-width="2" opacity="0.5"/>
+</svg>

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+    <defs>
+        <linearGradient id="bgGradMM1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#0d0514" />
+            <stop offset="50%" stop-color="#13081c" />
+            <stop offset="100%" stop-color="#1c0716" />
+        </linearGradient>
+        <linearGradient id="purpleMaskGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#4a154b" />
+            <stop offset="50%" stop-color="#8a2be2" />
+            <stop offset="100%" stop-color="#ff1493" />
+        </linearGradient>
+        <radialGradient id="moonGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#ff4500" stop-opacity="0.15" />
+            <stop offset="60%" stop-color="#ff0000" stop-opacity="0.05" />
+            <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+        </radialGradient>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="780" height="480" x="10" y="10" rx="16" ry="16" fill="url(#bgGradMM1)" stroke="#2b113a" stroke-width="2"/>
+    
+    <!-- Ominous Moon Background Overlay (Watermarked/Transparent) -->
+    <g transform="translate(400, 250)" opacity="0.12">
+        <!-- Moon Glow -->
+        <circle cx="0" cy="0" r="140" fill="url(#moonGlow)"/>
+        <!-- Moon Body -->
+        <circle cx="0" cy="0" r="90" fill="#5a525d" stroke="#3a303e" stroke-width="3"/>
+        <!-- Moon Craters & Texture -->
+        <circle cx="-30" cy="-40" r="18" fill="#3e3641" opacity="0.7"/>
+        <circle cx="40" cy="30" r="22" fill="#3e3641" opacity="0.7"/>
+        <circle cx="-25" cy="35" r="14" fill="#3e3641" opacity="0.7"/>
+        <!-- Ominous Eyes Angry Angled -->
+        <polygon points="-40,-10 -10,-5 -15,10 -45,0" fill="#ff3300"/>
+        <polygon points="40,-10 10,-5 15,10 45,0" fill="#ff3300"/>
+        <circle cx="-25" cy="0" r="3" fill="#ffff00"/>
+        <circle cx="25" cy="0" r="3" fill="#ffff00"/>
+        <!-- Grimacing Angry Smile/Teeth -->
+        <path d="M -40,40 Q 0,25 40,40 Q 30,55 0,55 Q -30,55 -40,40 Z" fill="#221925"/>
+        <path d="M -30,42 L -30,48 M -15,40 L -15,50 M 0,38 L 0,54 M 15,40 L 15,50 M 30,42 L 30,48" stroke="#dcd0c0" stroke-width="2"/>
+    </g>
+
+    <!-- Tribal Spike Border Structure -->
+    <rect width="740" height="440" x="30" y="30" rx="12" ry="12" fill="none" stroke="url(#purpleMaskGrad)" stroke-width="2" opacity="0.7"/>
+    
+    <!-- Majora Spikes in Corners -->
+    <!-- Top-Left -->
+    <path d="M 30,30 L 60,35 L 35,60 Z M 30,30 L 45,75 L 35,60 Z" fill="#8a2be2" opacity="0.8"/>
+    <!-- Top-Right -->
+    <path d="M 770,30 L 740,35 L 765,60 Z M 770,30 L 755,75 L 765,60 Z" fill="#8a2be2" opacity="0.8"/>
+    <!-- Bottom-Left -->
+    <path d="M 30,470 L 60,465 L 35,440 Z M 30,470 L 45,425 L 35,440 Z" fill="#ff1493" opacity="0.8"/>
+    <!-- Bottom-Right -->
+    <path d="M 770,470 L 740,465 L 765,440 Z M 770,470 L 755,425 L 765,440 Z" fill="#ff1493" opacity="0.8"/>
+</svg>

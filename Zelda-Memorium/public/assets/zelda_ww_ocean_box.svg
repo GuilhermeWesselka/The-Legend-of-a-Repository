@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient (Deep Ocean to Sunlit Water) -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0c2540" />
+      <stop offset="100%" stop-color="#184a75" />
+    </linearGradient>
+    
+    <!-- Nautical Gold Trim Gradient -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f3d060" />
+      <stop offset="50%" stop-color="#dfa82b" />
+      <stop offset="100%" stop-color="#b68112" />
+    </linearGradient>
+    
+    <!-- Bright Sea Foam / Wind Blue Accent -->
+    <linearGradient id="seaBlue" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4ae3c4" />
+      <stop offset="100%" stop-color="#2ba5df" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Card Base -->
+  <rect x="15" y="15" width="770" height="470" rx="25" fill="url(#bgGrad)" stroke="url(#goldGrad)" stroke-width="4" />
+  
+  <!-- Outer Pinstripe Inner Border -->
+  <rect x="27" y="27" width="746" height="446" rx="15" fill="none" stroke="#dfa82b" stroke-width="1" stroke-dasharray="4, 4" opacity="0.6" />
+  
+  <!-- Corner Ornaments (Wind Waker Swirls) -->
+  <!-- Top Left -->
+  <path d="M 30,65 C 30,45 45,30 65,30 C 80,30 90,40 85,55 C 80,65 70,65 65,58 C 60,50 65,42 72,45" fill="none" stroke="url(#goldGrad)" stroke-width="3" stroke-linecap="round"/>
+  <!-- Top Right -->
+  <path d="M 770,65 C 770,45 755,30 735,30 C 720,30 710,40 715,55 C 720,65 730,65 735,58 C 740,50 735,42 728,45" fill="none" stroke="url(#goldGrad)" stroke-width="3" stroke-linecap="round"/>
+  <!-- Bottom Left -->
+  <path d="M 30,435 C 30,455 45,470 65,470 C 80,470 90,460 85,445 C 80,435 70,435 65,442 C 60,450 65,458 72,455" fill="none" stroke="url(#goldGrad)" stroke-width="3" stroke-linecap="round"/>
+  <!-- Bottom Right -->
+  <path d="M 770,435 C 770,455 755,470 735,470 C 720,470 710,460 715,445 C 720,435 730,435 735,442 C 740,450 735,458 728,455" fill="none" stroke="url(#goldGrad)" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Wave / Wind Scroll Crest (Top Center) -->
+  <path d="M 360,40 Q 400,15 440,40 Q 420,50 400,35 Q 380,50 360,40 Z" fill="url(#seaBlue)" opacity="0.8"/>
+  <path d="M 340,45 Q 400,25 460,45" fill="none" stroke="url(#goldGrad)" stroke-width="2"/>
+
+  <!-- Iconic Celtic Border Knot Accents on Sides -->
+  <line x1="30" y1="120" x2="30" y2="380" stroke="url(#goldGrad)" stroke-width="2" />
+  <line x1="770" y1="120" x2="770" y2="380" stroke="url(#goldGrad)" stroke-width="2" />
+</svg>

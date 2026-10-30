@@ -192,6 +192,11 @@ h3 {
 }
 
 /*Conteúdo sobre Twilight Princess*/
+.cardTwiliGold {
+    height: auto;
+    width: 900px;
+}
+
 .LogoTwilight {
     max-width: 900px;
     width: 100%;
@@ -207,3 +212,8 @@ h3 {
     color: #ffaf02f6;
     font-size: 26px;
 }
+
+
+
+
+

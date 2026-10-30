@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGradGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111116" />
+      <stop offset="100%" stop-color="#1a1a24" />
+    </linearGradient>
+    
+    <!-- Gold Gradient for Borders and Accents -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c59b27" />
+      <stop offset="30%" stop-color="#fef1a0" />
+      <stop offset="50%" stop-color="#d4af37" />
+      <stop offset="85%" stop-color="#a37c15" />
+      <stop offset="100%" stop-color="#e5c158" />
+    </linearGradient>
+
+    <!-- Inner Shadow/Glow for Input Box -->
+    <filter id="innerGlow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowDiff"/>
+      <feFlood flood-color="#000" flood-opacity="0.5"/>
+      <feComposite in2="shadowDiff" operator="in"/>
+      <feComposite in2="SourceGraphic" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Main Dark Background -->
+  <rect x="10" y="10" width="780" height="380" rx="8" fill="url(#bgGradGold)" stroke="url(#goldGrad)" stroke-width="2" filter="url(#innerGlow)" />
+
+  <!-- Twilight Princess Ornate Corners -->
+  <!-- Top Left Corner Accent -->
+  <path d="M 10 50 L 50 10 M 10 30 L 30 10 M 15 15 L 35 15 L 15 35 Z" fill="url(#goldGrad)" />
+  <polygon points="20,40 40,20 45,25 25,45" fill="url(#goldGrad)" opacity="0.8" />
+  
+  <!-- Top Right Corner Accent -->
+  <path d="M 790 50 L 750 10 M 790 30 L 770 10 M 785 15 L 765 15 L 785 35 Z" fill="url(#goldGrad)" />
+  <polygon points="780,40 760,20 755,25 775,45" fill="url(#goldGrad)" opacity="0.8" />
+
+  <!-- Bottom Left Corner Accent -->
+  <path d="M 10 350 L 50 390 M 10 370 L 30 390 M 15 385 L 35 385 L 15 365 Z" fill="url(#goldGrad)" />
+  <polygon points="20,360 40,380 45,375 25,355" fill="url(#goldGrad)" opacity="0.8" />
+
+  <!-- Bottom Right Corner Accent -->
+  <path d="M 790 350 L 750 390 M 790 370 L 770 390 M 785 385 L 765 385 L 785 365 Z" fill="url(#goldGrad)" />
+  <polygon points="780,360 760,380 755,375 775,355" fill="url(#goldGrad)" opacity="0.8" />
+
+  <!-- Central Triforce-inspired Geometric Accents on Borders -->
+  <!-- Top Center -->
+  <polygon points="400,10 385,25 415,25" fill="url(#goldGrad)" />
+  <line x1="300" y1="15" x2="500" y2="15" stroke="url(#goldGrad)" stroke-width="1" stroke-dasharray="5,5" />
+  
+  <!-- Bottom Center -->
+  <polygon points="400,390 385,375 415,375" fill="url(#goldGrad)" />
+  <line x1="300" y1="385" x2="500" y2="385" stroke="url(#goldGrad)" stroke-width="1" stroke-dasharray="5,5" />
+
+  <!-- Delicate Inner Border Line -->
+  <rect x="22" y="22" width="756" height="356" rx="4" fill="none" stroke="url(#goldGrad)" stroke-width="0.75" opacity="0.6" />
+</svg>

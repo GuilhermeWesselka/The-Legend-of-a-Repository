@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+    <defs>
+        <linearGradient id="bgGradOOT2" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#05120a" />
+            <stop offset="100%" stop-color="#0c2015" />
+        </linearGradient>
+        <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#1e5631" />
+            <stop offset="50%" stop-color="#4cbb17" />
+            <stop offset="100%" stop-color="#1e5631" />
+        </linearGradient>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="780" height="480" x="10" y="10" rx="12" ry="12" fill="url(#bgGradOOT2)" stroke="#112d1b" stroke-width="2"/>
+    
+    <!-- Inner Borders -->
+    <rect width="746" height="446" x="27" y="27" rx="8" ry="8" fill="none" stroke="url(#emeraldGrad)" stroke-width="2" opacity="0.8"/>
+    
+    <!-- Kokiri Forest Swirls in corners -->
+    <!-- Top-Left -->
+    <path d="M 35,60 C 35,45 45,35 60,35 C 70,35 75,42 70,48 C 65,52 58,48 58,42 C 58,38 65,38 62,35" fill="none" stroke="#4cbb17" stroke-width="2" opacity="0.7"/>
+    <!-- Top-Right -->
+    <path d="M 765,60 C 765,45 755,35 740,35 C 730,35 725,42 730,48 C 735,52 742,48 742,42 C 742,38 735,38 738,35" fill="none" stroke="#4cbb17" stroke-width="2" opacity="0.7"/>
+    <!-- Bottom-Left -->
+    <path d="M 35,440 C 35,455 45,465 60,465 C 70,465 75,458 70,452 C 65,448 58,452 58,458 C 58,462 65,462 62,465" fill="none" stroke="#4cbb17" stroke-width="2" opacity="0.7"/>
+    <!-- Bottom-Right -->
+    <path d="M 765,440 C 765,455 755,465 740,465 C 730,465 725,458 730,452 C 735,448 742,452 742,458 C 742,462 735,462 738,465" fill="none" stroke="#4cbb17" stroke-width="2" opacity="0.7"/>
+
+    <!-- Spiritual Stone of Forest (Kokiri Emerald) Stylized Top Accent -->
+    <g transform="translate(400, 27) scale(0.7)">
+        <path d="M -20,0 L 0,-20 L 20,0 L 0,20 Z" fill="#4cbb17" />
+        <circle cx="0" cy="0" r="8" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.8"/>
+        <path d="M -30,0 C -30,-15 -15,-30 0,-30 C 15,-30 30,-15 30,0 C 30,15 15,30 0,30" fill="none" stroke="url(#emeraldGrad)" stroke-width="2"/>
+    </g>
+</svg>

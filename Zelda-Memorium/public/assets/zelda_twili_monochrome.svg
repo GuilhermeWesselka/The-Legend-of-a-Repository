@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient: Deep Twilight to near black -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050508"/>
+      <stop offset="100%" stop-color="#0f0f15"/>
+    </linearGradient>
+
+    <!-- Distortion Mask or Pattern Effect -->
+    <pattern id="twiliGrid" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(15) skewX(20)">
+      <rect width="20" height="20" fill="#ffffff" fill-opacity="0.07"/>
+      <rect x="20" y="20" width="20" height="20" fill="#ffffff" fill-opacity="0.07"/>
+      <rect x="20" y="0" width="20" height="20" fill="#000000" fill-opacity="0.4"/>
+      <rect x="0" y="20" width="20" height="20" fill="#000000" fill-opacity="0.4"/>
+    </pattern>
+    
+    <!-- Linear sharp gradient for border -->
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#888888"/>
+      <stop offset="100%" stop-color="#ffffff"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Base Background Box -->
+  <rect x="10" y="10" width="780" height="480" rx="15" fill="url(#bgGrad)" stroke="#1a1a24" stroke-width="2"/>
+
+  <!-- Distorted Checker Overlays on Sides (Twili Portal Aesthetic) -->
+  <!-- Left Panel -->
+  <path d="M 15 15 L 120 15 L 80 485 L 15 485 Z" fill="url(#twiliGrid)" clip-path="url(#leftClip)"/>
+  <!-- Right Panel -->
+  <path d="M 680 15 L 785 15 L 785 485 L 720 485 Z" fill="url(#twiliGrid)"/>
+
+  <!-- Distorted digital/geometric runic blocks in monochrome -->
+  <!-- Upper Left -->
+  <rect x="30" y="30" width="25" height="25" fill="#ffffff" opacity="0.8"/>
+  <rect x="60" y="30" width="12" height="12" fill="#ffffff" opacity="0.4"/>
+  <rect x="30" y="60" width="12" height="12" fill="#ffffff" opacity="0.4"/>
+  
+  <!-- Upper Right -->
+  <rect x="745" y="30" width="25" height="25" fill="#ffffff" opacity="0.8"/>
+  <rect x="723" y="30" width="12" height="12" fill="#ffffff" opacity="0.4"/>
+  <rect x="758" y="60" width="12" height="12" fill="#ffffff" opacity="0.4"/>
+
+  <!-- Lower Left -->
+  <rect x="30" y="445" width="25" height="25" fill="#ffffff" opacity="0.8"/>
+  <rect x="60" y="458" width="12" height="12" fill="#ffffff" opacity="0.4"/>
+  <rect x="30" y="423" width="12" height="12" fill="#ffffff" opacity="0.4"/>
+
+  <!-- Lower Right -->
+  <rect x="745" y="445" width="25" height="25" fill="#ffffff" opacity="0.8"/>
+  <rect x="723" y="458" width="12" height="12" fill="#ffffff" opacity="0.4"/>
+  <rect x="758" y="423" width="12" height="12" fill="#ffffff" opacity="0.4"/>
+
+  <!-- Inner framing lines with gaps (Twili Tech) -->
+  <path d="M 140 25 L 660 25 M 775 100 L 775 400 M 660 475 L 140 475 M 25 400 L 25 100" 
+        stroke="url(#borderGrad)" stroke-width="1.5" stroke-dasharray="30 10 10 10 80 15"/>
+
+  <!-- Central decorative runic lines -->
+  <path d="M 380 20 L 390 25 L 410 25 L 420 20" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.9"/>
+  <path d="M 380 480 L 390 475 L 410 475 L 420 480" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.9"/>
+</svg>
