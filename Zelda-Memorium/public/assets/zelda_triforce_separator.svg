@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 60" width="100%" height="100%">
+  <defs>
+    <!-- Metallic Gold Gradient -->
+    <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8a6f3e" />
+      <stop offset="20%" stop-color="#dbb56c" />
+      <stop offset="50%" stop-color="#fdf0cd" />
+      <stop offset="80%" stop-color="#dbb56c" />
+      <stop offset="100%" stop-color="#8a6f3e" />
+    </linearGradient>
+    
+    <!-- Shadow Effect -->
+    <filter id="shadow" x="-10%" y="-50%" width="120%" height="200%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.8"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#shadow)">
+    <!-- Central Main Line -->
+    <line x1="150" y1="30" x2="650" y2="30" stroke="url(#gold-grad)" stroke-width="3" stroke-linecap="round" />
+    
+    <!-- Central Thin Accent Line -->
+    <line x1="250" y1="30" x2="550" y2="30" stroke="#fff" stroke-width="0.7" opacity="0.5" />
+
+    <!-- Left Decorative Tip -->
+    <g transform="translate(150, 30)">
+      <!-- Diamond/Losango -->
+      <polygon points="0,0 -12,-6 -24,0 -12,6" fill="url(#gold-grad)" />
+      <!-- Small outer dot -->
+      <circle cx="-32" cy="0" r="2.5" fill="#dbb56c" />
+      <!-- Inner accent line -->
+      <line x1="-12" y1="-6" x2="-12" y2="6" stroke="#8a6f3e" stroke-width="1" />
+    </g>
+
+    <!-- Right Decorative Tip -->
+    <g transform="translate(650, 30)">
+      <!-- Diamond/Losango -->
+      <polygon points="0,0 12,-6 24,0 12,6" fill="url(#gold-grad)" />
+      <!-- Small outer dot -->
+      <circle cx="32" cy="0" r="2.5" fill="#dbb56c" />
+      <!-- Inner accent line -->
+      <line x1="12" y1="-6" x2="12" y2="6" stroke="#8a6f3e" stroke-width="1" />
+    </g>
+    
+    <!-- Center Tiny Ornament (Triforce Hint or Diamond) -->
+    <polygon points="400,24 406,30 400,36 394,30" fill="url(#gold-grad)" />
+    <circle cx="382" cy="30" r="1.5" fill="#dbb56c" />
+    <circle cx="418" cy="30" r="1.5" fill="#dbb56c" />
+  </g>
+</svg>

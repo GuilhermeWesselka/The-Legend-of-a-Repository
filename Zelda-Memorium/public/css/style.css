@@ -1,9 +1,11 @@
 * {
     margin: 0;
-    padding: 0; /* Zera o padding e margin padrão dos elementos */
-    box-sizing: border-box; 
+    padding: 0;
+    /* Zera o padding e margin padrão dos elementos */
+    box-sizing: border-box;
     /* Mantém o width/height do elemento quando é adicionado padding ou border */
-    scroll-behavior: smooth; /* Deixa o scrool suave */
+    scroll-behavior: smooth;
+    /* Deixa o scrool suave */
 }
 
 /* background central do site*/
@@ -16,19 +18,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
-    min-height: 150vh;
-}
-
-/*Background do Sobre Twilight*/
-.background-twilight {
-    background-image: url('../assets/twilightMoon.png');
-    min-width: 100%;
-    background-size: 100;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    min-height: 100vh;
+    min-height: 140vh;
 }
 
 /*fontes do site*/
@@ -75,20 +65,30 @@ h2 {
     font-family: 'HyliaSerif', serif;
     color: #e6b122;
     font-size: 80px;
-    letter-spacing: 1px; /*faz o espaçamento clássico dos jogos*/
+    letter-spacing: 1px;
+    /*faz o espaçamento clássico dos jogos*/
 }
 
 h3 {
     font-family: 'TriforceFont', serif;
     color: #ffff;
     font-size: 20px;
-    letter-spacing: 1px; /*faz o espaçamento clássico dos jogos*/
+    letter-spacing: 1px;
+    /*faz o espaçamento clássico dos jogos*/
+}
+
+h4 {
+    font-family: 'TriforceFont', serif;
+    color: #ffd466ac;
+    font-size: 18px;
+    letter-spacing: 1px;
+    /*faz o espaçamento clássico dos jogos*/
 }
 
 /* estilização da navbar*/
 .navbar {
     display: flex;
-    justify-content: flex-end; 
+    justify-content: flex-end;
     align-items: center;
     padding: 20px 40px;
 }
@@ -111,7 +111,7 @@ h3 {
     letter-spacing: 1px;
     font-weight: bold;
     transition: 0.6s ease;
-    
+
 }
 
 .nav-items a:hover {
@@ -150,30 +150,41 @@ h3 {
 /* conteudo central da home*/
 .conteudo-centro {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-bottom: 60px;
+    padding-bottom: 40px;
+    padding-top: 57px;
+    width: 100%;
 }
 
 .img-centro {
     max-width: 400px;
     height: auto;
     display: flex;
+    flex-direction: column;
     justify-self: center;
+    width: 100% auto;
     padding-top: 20px;
-    animation: girarEspelho 40s linear infinite; /* essa função faz a imagem girar por 40 segundos de forma infinita*/
+    animation: girarEspelho 40s linear infinite;
+    /* essa função faz a imagem girar por 40 segundos de forma infinita*/
 }
 
 /* animação do espelho twili*/
 @keyframes girarEspelho {
-    from { /* funciona de forma semelhante ao while*/
-        transform: rotate(0deg); /* muda o elemento html forma*/
+    from {
+        /* funciona de forma semelhante ao while*/
+        transform: rotate(0deg);
+        /* muda o elemento html forma*/
     }
+
     to {
-        transform: rotate(360deg); /* roda do sentido horário de 0 à 360*/
+        transform: rotate(360deg);
+        /* roda do sentido horário de 0 à 360*/
     }
-    
+
 }
+
 /* texto exibido no centro da home*/
 .txt-centro {
     display: flex;
@@ -191,7 +202,144 @@ h3 {
     justify-content: center;
 }
 
-/*Conteúdo sobre Twilight Princess*/
+/* Conteúdo sobre a Triforce*/
+.background-triforce {
+    background-image: url('../assets/triforceFundo.png');
+    min-width: 100%;
+    padding-left: 20px;
+    background-size: 100% auto;
+    background-position: left top;
+    background-repeat: no-repeat; /* evita o backgound de repetir várias vezes se ele for pequeno demais*/
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+
+}
+
+.logoTriforce {
+    min-width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: auto;
+
+}
+
+.logoTriforceSombra {
+    background-image: url('../assets/triforceDark.png');
+    background-repeat: no-repeat;
+    width: 600px;
+    height: 600px;
+    flex-direction: column;
+    justify-self: center;
+    transform: scaleY(-1);  /* inverte a imagem de cabeça pra baixo*/
+    position: absolute;
+    z-index: 1;
+    margin-left: -390.3px;
+    margin-top: 150.3px;
+    top: 0%;
+    /* controla a altura, aumente para descer, diminua para subir */
+    left: 50%;
+
+}
+
+.separadorMin {
+    width: 100%;
+    height: auto;
+    max-width: 870px;
+    margin-top: -16px;
+    position: relative;
+    z-index: 2;
+}
+
+.txt-triforce {
+    text-align: center;
+    max-width: 825px;
+    /* é a "caixa invisível" que mantém o texto sem pegar a tela toda*/
+    margin: 40px auto;
+    padding: 20px;
+    margin-top: -26px;
+    position: relative;
+    z-index: 2;
+
+}
+
+.background-triforce h2,
+h3 {
+    z-index: 2;
+
+}
+
+/* Conteúdo sobre a Triforce/Portadores*/
+.triforce-portadores {
+    margin-top: -60px;
+    margin-bottom: 300px;
+    position: relative;
+    top: 70px;
+}
+
+.partesTriforce {
+    margin-top: 180px;
+    margin-bottom: -108px;
+    min-width: auto;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: auto;
+    position: relative;
+    left: 134.6px;
+}
+
+.separadorMin2 {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 870px;
+
+}
+
+/* Pagina de Login*/
+.background-login {
+    background-image: url('../assets/zelda_mm_moon.png');
+    background-repeat: no-repeat;
+    min-width: 100%;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 100vh;
+}
+
+
+
+
+
+
+
+
+
+/* Conteúdo sobre Twilight Princess*/
+.background-twilight {
+    background-image: url('../assets/twilightMoon.png');
+    /*background do Sobre Twilight*/
+    min-width: 100%;
+    background-size: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+}
+
 .cardTwiliGold {
     height: auto;
     width: 900px;
@@ -206,14 +354,10 @@ h3 {
     margin-top: 10px;
     padding-top: 30px;
 }
-.txt-twilight h3{
+
+.txt-twilight h3 {
     display: flex;
     justify-content: center;
     color: #ffaf02f6;
     font-size: 26px;
 }
-
-
-
-
-
