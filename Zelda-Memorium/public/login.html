@@ -19,18 +19,17 @@
 
     <!--Navbar-->
     <div class="background-login">
-        
+
     <div class="navbar">
       <!-- Onde colocar a logo ou foto na nav -->
       <div class="nav-items">
         <a href="#">Questionario</a>
-        <a href="#navbar">Pagina Inicial</a>
+        <a href="./index.html">Pagina Inicial</a>
         <!-- Botões transformados diretamente em links estilizados -->
         <a href="./login.html" class="btn-login">Login</a>
         <a href="#" class="btn-cadastro">Cadastro</a>
       </div>
     </div>
-
 
     <div class="login">
         <div class="alerta_erro">
@@ -40,8 +39,11 @@
         </div>
         <div class="container">
             <div class="card card-login">
-                <h2>Olá de volta!</h2>
+                
                 <div class="formulario">
+                    <h2>Olá de volta!</h2>
+                    <div class="telescopioMajora">
+                        <img class="telescopioMajora-img" src="./assets/telescopioMajora.svg" alt="telescopioMajora">
                     <div class="campo">
                         <span>E-mail:</span>
                         <input id="email_input" type="text" placeholder="Login">
@@ -51,13 +53,16 @@
                         <input id="senha_input" type="password" placeholder="******">
                     </div>
                     <button class="botao" onclick="entrar()">Entrar</button>
+                    </div>
+
                 </div>
 
-                <div id="div_aguardar" class="loading-div">
+               <!-- <div id="div_aguardar" class="loading-div">
                     <img src="./assets/circle-loading.gif" id="loading-gif">
                 </div>
 
-                <div id="div_erros_login"></div>
+                <div id="div_erros_login"></div> -->
+                
             </div>
         </div>
     </div>
@@ -65,12 +70,15 @@
     </div>
 
     <!--footer inicio-->
-    <div class="footer">
+
+   <!-- <div class="footer">
         <div class="container">
             <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023-2026</h4>
         </div>
-    </div>
+    </div> -->
+
     <!--footer fim-->
+    
 
 </body>
 

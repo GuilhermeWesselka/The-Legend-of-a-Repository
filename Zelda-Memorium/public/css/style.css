@@ -319,6 +319,74 @@ h3 {
     min-height: 100vh;
 }
 
+.telescopioMajora {
+    max-width: 650px;
+    width: 600px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-self: left;
+    align-items: center; /*alinha os cards pro centro do círculo*/
+    justify-content: center; /* joga os cards pro centro do círculo*/
+    padding: 40px;
+    padding-top: 25px;
+    
+}
+
+.telescopioMajora-img {
+    position: absolute; /* retira o peso físico da imagem para ela não empurrar os textos */
+    width: 600px;
+    height: 600px;
+    z-index: 1;
+    animation: girarEspelho 40s linear infinite; /* retuilizado da logo home*/
+}
+
+.campo {
+    position: relative;
+    z-index: 2;
+    font-family: 'TriforceFont', serif;
+    color: #ffd466ac;
+    background-color: rgba(161, 87, 245, 0.18);
+    border-radius: 30px;
+    font-size: 28px;
+    letter-spacing: 1px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    width: 65%;
+    margin-bottom: 25px;
+    
+}
+
+.campo input {
+    position: relative;
+    z-index: 2;
+    font-family: 'TriforceFont', serif;
+    color: #7a5802ac;
+    font-size: 18px;
+    letter-spacing: 1px;
+    width: 70%;
+    padding: 5px;
+    border-radius: 15px;
+}
+
+.botao {
+    position: relative;
+    z-index: 2;
+    width: 50%;
+    border-radius: 15px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.container h2 {
+    display: flex;
+    justify-content: left;
+    padding-left: 55px;
+}
+
 
 
 

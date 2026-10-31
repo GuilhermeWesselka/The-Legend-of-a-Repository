@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <!-- Filtro nativo de desfoque (Backdrop Blur) -->
+    <filter id="glass-blur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Gradiente do vidro místico (Roxo escuro da identidade de Majora's Mask) -->
+    <linearGradient id="purple-void" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b071e" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#140b2b" stop-opacity="0.75" />
+    </linearGradient>
+
+    <!-- Gradiente Dourado para o padrão do círculo original -->
+    <linearGradient id="majora-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffe66d" />
+      <stop offset="50%" stop-color="#cca43b" />
+      <stop offset="100%" stop-color="#997315" />
+    </linearGradient>
+
+    <!-- Filtro de brilho (Glow) para a energia mágica do anel -->
+    <filter id="gold-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComponentTransfer in="blur" result="glow1">
+        <feFuncA type="linear" slope="0.5"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode in="glow1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 1. CAMADA DE VIDRO (Gera o desfoque de fundo em tempo real) -->
+  <circle cx="250" cy="250" r="215" 
+          fill="url(#purple-void)" 
+          filter="url(#glass-blur)" 
+          style="backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);" />
+
+  <!-- 2. BORDA DE ENERGIA INTERNA -->
+  <circle cx="250" cy="250" r="215" 
+          fill="none" 
+          stroke="#a349fd" 
+          stroke-width="1.5" 
+          stroke-opacity="0.3" />
+
+  <!-- 3. DETALHAMENTO DO ANEL DOURADO (Estrutura geométrica idêntica à imagem enviada) -->
+  <g filter="url(#gold-glow)">
+    <!-- Borda externa sólida -->
+    <circle cx="250" cy="250" r="230" fill="none" stroke="url(#majora-gold)" stroke-width="3" />
+    
+    <!-- Linha de contorno externa -->
+    <circle cx="250" cy="250" r="224" fill="none" stroke="url(#majora-gold)" stroke-width="1" stroke-opacity="0.7" />
+
+    <!-- O padrão geométrico interno gerado via tracejados concêntricos (dasharrays) -->
+    <circle cx="250" cy="250" r="212" 
+            fill="none" 
+            stroke="url(#majora-gold)" 
+            stroke-width="10" 
+            stroke-dasharray="12 6" />
+
+    <circle cx="250" cy="250" r="200" 
+            fill="none" 
+            stroke="url(#majora-gold)" 
+            stroke-width="4" 
+            stroke-dasharray="4 8" />
+
+    <!-- Linha de contorno interna -->
+    <circle cx="250" cy="250" r="194" fill="none" stroke="url(#majora-gold)" stroke-width="2" />
+    
+    <!-- Borda interna limite -->
+    <circle cx="250" cy="250" r="190" fill="none" stroke="url(#majora-gold)" stroke-width="1.5" stroke-opacity="0.8" />
+  </g>
+</svg>
