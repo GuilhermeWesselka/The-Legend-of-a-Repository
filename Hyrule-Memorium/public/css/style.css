@@ -317,6 +317,8 @@ h3 {
     flex-direction: column;
     justify-content: flex-start;
     min-height: 100vh;
+    overflow: hidden; /*NECESSÁRIO para os circulos não estourarem a página*/
+    
 }
 
 .telescopioMajora {
@@ -330,6 +332,8 @@ h3 {
     justify-content: center; /* joga os cards pro centro do círculo*/
     padding: 40px;
     padding-top: 25px;
+    overflow: hidden; /*NECESSÁRIO para os circulos não estourarem a página*/
+    
     
 }
 
@@ -403,17 +407,22 @@ h3 {
     background-image: url('../assets/zelda_oot_link.png');
     background-repeat: no-repeat;
     min-width: 100%;
+    min-height: 100vh;
+    max-height: 100vh;
     background-size: cover;
+    background-position: center;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    min-height: 120vh;
+    align-items: stretch;
+    overflow: hidden; /*NECESSÁRIO para os circulos não estourarem a página*/
+    
     
   
 }
 
 .cadastro{
-    padding-top: 70px;
+    padding-top: 20px;
 }
 
 .circuloDourado {
@@ -427,14 +436,20 @@ h3 {
     justify-content: center; /* joga os cards pro centro do círculo*/
     padding: 40px;
     padding-right: 190px;
+    padding-bottom: 90px;
     padding-top: 150px;
+    overflow: hidden; /*NECESSÁRIO para os circulos não estourarem a página*/
+    
+    
     
 }
 
 .circuloDourado-img {
+    display: block;
     position: absolute; /* retira o peso físico da imagem para ela não empurrar os textos */
-    width: 600px;
-    height: 600px;
+    width: 600px ;
+    height: 600px ;
+    max-width: 900px;
     z-index: 1;
     opacity: 40%; /* deixa a imagem transparente*/
     animation: girarEspelho 40s linear infinite; /* retuilizado da logo home*/
@@ -496,6 +511,7 @@ h3 {
     min-height: 100vh;
     width: 400px;
     height: 400px;
+    max-width: 100%;
     z-index: 1;
     opacity: 70%; /* deixa a imagem transparente*/
     display: flex;
