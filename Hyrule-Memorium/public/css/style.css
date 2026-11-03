@@ -384,10 +384,12 @@ h3 {
     color: #ffb700f2;
     font-size: 26px;
     transition: ease 0.96s;
+
 }
+
 .botao:hover {
-    background: #f3f2f21c;
-    color: #5800fcf2;
+    background: #261f42;
+    color: #fc00007b;
 }
 
 .container h2 {
@@ -396,9 +398,129 @@ h3 {
     padding-left: 55px;
 }
 
+/* Pagina de Cadastro*/
+.background-cadastro {
+    background-image: url('../assets/zelda_oot_link.png');
+    background-repeat: no-repeat;
+    min-width: 100%;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 120vh;
+    
+  
+}
 
+.cadastro{
+    padding-top: 70px;
+}
 
+.circuloDourado {
+    max-width: 650px;
+    width: 600px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-self: right;
+    align-items: center; /*alinha os cards pro centro do círculo*/
+    justify-content: center; /* joga os cards pro centro do círculo*/
+    padding: 40px;
+    padding-right: 190px;
+    padding-top: 150px;
+    
+}
 
+.circuloDourado-img {
+    position: absolute; /* retira o peso físico da imagem para ela não empurrar os textos */
+    width: 600px;
+    height: 600px;
+    z-index: 1;
+    opacity: 40%; /* deixa a imagem transparente*/
+    animation: girarEspelho 40s linear infinite; /* retuilizado da logo home*/
+}
+
+.campo-cadastro {
+    position: relative;
+    z-index: 2;
+    font-family: 'TriforceFont', serif;
+    color: #ffd466ac;
+    border-radius: 30px;
+    font-size: 25px;
+    letter-spacing: 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px;
+    width: 65%;
+    margin-bottom: 25px;
+    
+}
+
+.campo-cadastro input {
+    position: relative;
+    z-index: 2;
+    font-family: 'TriforceFont', serif;
+    color: #f7f6f5ac;
+    background-color: #0f180f96;
+    font-size: 18px;
+    letter-spacing: 1px;
+    width: 100%;
+    padding: 5px;
+    border-radius: 15px;
+}
+
+.botao-cadastro {
+    position: relative;
+    z-index: 2;
+    width: 50%;
+    border-radius: 35px;
+    padding: 20px;
+    cursor: pointer;
+    background-color: #efc05a73;
+    font-family: 'HyliaSerif';
+    color: #ddffde;
+    font-size: 26px;
+    transition: ease 0.96s;
+
+}
+
+.botao-cadastro:hover {
+    background: #002afc;
+    color: #efc15a;
+}
+
+.masterSword {
+    position: absolute; /* retira o peso físico da imagem para ela não empurrar os textos */
+    min-height: 100vh;
+    width: 400px;
+    height: 400px;
+    z-index: 1;
+    opacity: 70%; /* deixa a imagem transparente*/
+    display: flex;
+    justify-content: right;
+    flex-direction: column;
+    justify-self: right;
+    right: 29.9%;
+    
+}
+
+.card-cadastro {
+    display: flex;
+    justify-content: right;
+    flex-direction: column;
+    justify-self: right;
+    position: relative;
+    
+}
+.container-cadastro{
+    display: flex;
+    justify-content: right;
+    flex-direction: column;
+    justify-self: right;
+    position: relative;
+}
 
 
 
