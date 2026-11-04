@@ -96,7 +96,7 @@
 </html>
 
 <script>
-
+ 
   // Array para armazenar empresas cadastradas para validação de código de ativação 
   let listaEmpresasCadastradas = [];
 
@@ -109,16 +109,41 @@
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
-    var codigoVar = codigo_input.value;
-    var idEmpresaVincular
+    var listaSenha= [senha_input.value];
+    var caractereEspecial = "!@#$%*()_+=-',.;:~[{}]´`?/><|"
+    var temCaractereEspecial = false;
+    
+    //var codigoVar = codigo_input.value;
+    //var idEmpresaVincular
 
+    if(senhaVar != confirmacaoSenhaVar){
+      alert('As senhas não são iguais!')
+    }
+
+    else{
+    for (let i = 0; i < senhaVar.length; i++) {
+      var letraAtual = senhaVar[i];
+
+      if(caractereEspecial.includes(letraAtual) && senhaVar == confirmacaoSenhaVar){
+        temCaractereEspecial = true
+      }
+    }
+
+    if(temCaractereEspecial == false){
+      alert('A senha deve ter pelo menos um caractere especial!')
+    }
+    else{
+      alert('Senha válida, continuando cadastro...')
+    }
+  }
+    
     // Verificando se há algum campo em branco
     if (
       nomeVar == "" ||
       emailVar == "" ||
       senhaVar == "" ||
-      confirmacaoSenhaVar == "" ||
-      codigoVar == ""
+      confirmacaoSenhaVar == "" //||
+      //codigoVar == ""
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
@@ -129,6 +154,7 @@
     } else {
       setInterval(sumirMensagem, 5000);
     }
+
 
     // Verificando se o código de ativação é de alguma empresa cadastrada
     for (let i = 0; i < listaEmpresasCadastradas.length; i++) {

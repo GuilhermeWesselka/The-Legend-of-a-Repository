@@ -333,6 +333,7 @@ h3 {
     padding: 40px;
     padding-top: 25px;
     overflow: hidden; /*NECESSÁRIO para os circulos não estourarem a página*/
+    display: block;
     
     
 }
