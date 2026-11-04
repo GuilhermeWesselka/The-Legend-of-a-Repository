@@ -116,10 +116,12 @@
     //var codigoVar = codigo_input.value;
     //var idEmpresaVincular
 
-    if(senhaVar != confirmacaoSenhaVar){
+    // validações de senhas iguais
+    if(senhaVar != confirmacaoSenhaVar){ 
       alert('As senhas não são iguais!')
     }
 
+    // validações de senhas com caractere especial
     else{
     for (let i = 0; i < senhaVar.length; i++) {
       var letraAtual = senhaVar[i];
