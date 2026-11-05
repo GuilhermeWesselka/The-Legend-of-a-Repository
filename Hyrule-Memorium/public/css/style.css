@@ -164,7 +164,7 @@ h4 {
     display: flex;
     flex-direction: column;
     justify-self: center;
-    width: 100% auto;
+    width: 100%;
     padding-top: 20px;
     animation: girarEspelho 40s linear infinite;
     /* essa função faz a imagem girar por 40 segundos de forma infinita*/
@@ -206,16 +206,18 @@ h4 {
 .background-triforce {
     background-image: url('../assets/triforceFundo.png');
     min-width: 100%;
+    min-height: 100%;
     padding-left: 20px;
-    background-size: 100% auto;
+    padding: 5%;
+    background-size: 100%;
     background-position: left top;
     background-repeat: no-repeat; /* evita o backgound de repetir várias vezes se ele for pequeno demais*/
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    min-height: 100vh;
     position: relative;
+    overflow: hidden;
 
 }
 
@@ -232,18 +234,18 @@ h4 {
 .logoTriforceSombra {
     background-image: url('../assets/triforceDark.png');
     background-repeat: no-repeat;
-    width: 600px;
-    height: 600px;
+    background-size: 53.5%;
+    min-width: 100%;
+    min-height: 100%;
     flex-direction: column;
     justify-self: center;
+    transform-origin: top;
     transform: scaleY(-1);  /* inverte a imagem de cabeça pra baixo*/
     position: absolute;
     z-index: 1;
-    margin-left: -390.3px;
-    margin-top: 150.3px;
-    top: 0%;
+    top: 21.8%;
     /* controla a altura, aumente para descer, diminua para subir */
-    left: 50%;
+    left: 23.21%;
 
 }
 
@@ -276,10 +278,9 @@ h3 {
 
 /* Conteúdo sobre a Triforce/Portadores*/
 .triforce-portadores {
-    margin-top: -60px;
     margin-bottom: 300px;
     position: relative;
-    top: 70px;
+    bottom: 20vh;;
 }
 
 .partesTriforce {
@@ -312,13 +313,19 @@ h3 {
     background-image: url('../assets/zelda_mm_moon.png');
     background-repeat: no-repeat;
     min-width: 100%;
+    min-height: 100vh;
+    max-height: 100vh;
     background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    min-height: 100vh;
     overflow: hidden; /*NECESSÁRIO para os circulos não estourarem a página*/
     
+}
+
+.card-login {
+    position: relative;
+    overflow: hidden;
 }
 
 .telescopioMajora {
@@ -344,6 +351,7 @@ h3 {
     height: 600px;
     z-index: 1;
     animation: girarEspelho 40s linear infinite; /* retuilizado da logo home*/
+    opacity: 70%;
 }
 
 .campo {
@@ -351,12 +359,12 @@ h3 {
     z-index: 2;
     font-family: 'TriforceFont', serif;
     color: #ffd466ac;
-    background-color: rgba(161, 87, 245, 0.18);
+    background-color: transparent;
     border-radius: 30px;
     font-size: 28px;
     letter-spacing: 1px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
     padding: 16px;
@@ -370,11 +378,14 @@ h3 {
     z-index: 2;
     font-family: 'TriforceFont', serif;
     color: #7a5802ac;
+    background-color: rgba(161, 87, 245, 0.18);
     font-size: 18px;
     letter-spacing: 1px;
     width: 70%;
     padding: 5px;
     border-radius: 15px;
+    
+
 }
 
 .botao {
@@ -382,13 +393,14 @@ h3 {
     z-index: 2;
     width: 50%;
     border-radius: 35px;
-    padding: 20px;
+    padding: 10px;
     cursor: pointer;
     background-color: #002bb9;
     font-family: 'HyliaSerif';
     color: #ffb700f2;
     font-size: 26px;
     transition: ease 0.96s;
+    opacity: 70%;
 
 }
 
@@ -509,17 +521,17 @@ h3 {
 
 .masterSword {
     position: absolute; /* retira o peso físico da imagem para ela não empurrar os textos */
-    min-height: 100vh;
+    min-height: 100%;
     width: 400px;
     height: 400px;
-    max-width: 100%;
+    max-width: 45%;
     z-index: 1;
     opacity: 70%; /* deixa a imagem transparente*/
     display: flex;
     justify-content: right;
     flex-direction: column;
     justify-self: right;
-    right: 29.9%;
+    right: 39.8%;
     
 }
 

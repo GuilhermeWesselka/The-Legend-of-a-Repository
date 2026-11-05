@@ -4,7 +4,7 @@ USE hyruleMemorium;
 CREATE TABLE usuario (
 id INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR (45) NOT NULL,
-email VARCHAR (45) NOT NULL,
+email VARCHAR (45) UNIQUE NOT NULL,
 senha VARCHAR (45) NOT NULL
 );
 
@@ -27,7 +27,10 @@ INSERT INTO questionario (motivacao, jogo, recomendacao, fkUsuario) VALUES
 
 SELECT * FROM usuario;
 SELECT * FROM questionario;
-
+TRUNCATE TABLE usuario;
+TRUNCATE TABLE questionario;
+DROP TABLE questionario;
+DROP TABLE usuario;
 -- buscando os usuários/jogos e motivação da escolha
 SELECT u.nome, q.jogo, q.motivacao from usuario u
 JOIN questionario q ON q.fkUsuario = u.id;
