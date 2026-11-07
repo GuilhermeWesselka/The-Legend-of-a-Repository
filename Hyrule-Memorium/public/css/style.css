@@ -166,8 +166,7 @@ h4 {
     justify-self: center;
     width: 100%;
     padding-top: 20px;
-    animation: girarEspelho 40s linear infinite;
-    /* essa função faz a imagem girar por 40 segundos de forma infinita*/
+    animation: girarEspelho 40s linear infinite; /* essa função faz a imagem girar por 40 segundos de forma infinita*/
 }
 
 /* animação do espelho twili*/
@@ -205,11 +204,10 @@ h4 {
 /* Conteúdo sobre a Triforce*/
 .background-triforce {
     background-image: url('../assets/triforceFundo.png');
-    min-width: 100%;
-    min-height: 100%;
-    padding-left: 20px;
+    width: 100%;
+    min-height: 100vh;
     padding: 5%;
-    background-size: 100%;
+    background-size: cover;
     background-position: left top;
     background-repeat: no-repeat; /* evita o backgound de repetir várias vezes se ele for pequeno demais*/
     display: flex;
@@ -232,20 +230,20 @@ h4 {
 }
 
 .logoTriforceSombra {
-    background-image: url('../assets/triforceDark.png');
     background-repeat: no-repeat;
     background-size: 53.5%;
-    min-width: 100%;
-    min-height: 100%;
+    min-width: 85vh;
+    min-height: 41vh;
+    width: 6vh;
+    height: 6vh;
     flex-direction: column;
     justify-self: center;
     transform-origin: top;
-    transform: scaleY(-1);  /* inverte a imagem de cabeça pra baixo*/
+    transform: scaleY(-1); /* inverte a imagem de cabeça pra baixo*/
     position: absolute;
     z-index: 1;
-    top: 21.8%;
-    /* controla a altura, aumente para descer, diminua para subir */
-    left: 23.21%;
+    top: 82.9vh;   /* controla a altura, aumente para descer, diminua para subir */
+    left: 57.66vh;
 
 }
 
@@ -260,8 +258,7 @@ h4 {
 
 .txt-triforce {
     text-align: center;
-    max-width: 825px;
-    /* é a "caixa invisível" que mantém o texto sem pegar a tela toda*/
+    max-width: 825px;     /* é a "caixa invisível" que mantém o texto sem pegar a tela toda*/
     margin: 40px auto;
     padding: 20px;
     margin-top: -26px;
@@ -280,7 +277,8 @@ h3 {
 .triforce-portadores {
     margin-bottom: 300px;
     position: relative;
-    bottom: 20vh;;
+    bottom: 20vh;
+    ;
 }
 
 .partesTriforce {
@@ -319,8 +317,9 @@ h3 {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    overflow: hidden; /*NECESSÁRIO para os circulos não estourarem a página*/
-    
+    overflow: hidden;
+    /*NECESSÁRIO para os circulos não estourarem a página*/
+
 }
 
 .card-login {
@@ -335,22 +334,27 @@ h3 {
     display: flex;
     flex-direction: column;
     justify-self: left;
-    align-items: center; /*alinha os cards pro centro do círculo*/
-    justify-content: center; /* joga os cards pro centro do círculo*/
+    align-items: center;
+    /*alinha os cards pro centro do círculo*/
+    justify-content: center;
+    /* joga os cards pro centro do círculo*/
     padding: 40px;
     padding-top: 25px;
-    overflow: hidden; /*NECESSÁRIO para os circulos não estourarem a página*/
-    
-    
-    
+    overflow: hidden;
+    /*NECESSÁRIO para os circulos não estourarem a página*/
+
+
+
 }
 
 .telescopioMajora-img {
-    position: absolute; /* retira o peso físico da imagem para ela não empurrar os textos */
+    position: absolute;
+    /* retira o peso físico da imagem para ela não empurrar os textos */
     width: 600px;
     height: 600px;
     z-index: 1;
-    animation: girarEspelho 40s linear infinite; /* retuilizado da logo home*/
+    animation: girarEspelho 40s linear infinite;
+    /* retuilizado da logo home*/
     opacity: 70%;
 }
 
@@ -370,21 +374,21 @@ h3 {
     padding: 16px;
     width: 65%;
     margin-bottom: 25px;
-    
+
 }
 
 .campo input {
     position: relative;
     z-index: 2;
     font-family: 'TriforceFont', serif;
-    color: #7a5802ac;
+    color: #f7f6f5ac;
     background-color: rgba(161, 87, 245, 0.18);
     font-size: 18px;
     letter-spacing: 1px;
     width: 70%;
     padding: 5px;
     border-radius: 15px;
-    
+
 
 }
 
@@ -428,13 +432,12 @@ h3 {
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
-    overflow: hidden; /*NECESSÁRIO para os circulos não estourarem a página*/
-    
-    
-  
+    overflow: hidden;
+    /*NECESSÁRIO para os circulos não estourarem a página*/
+
 }
 
-.cadastro{
+.cadastro {
     padding-top: 20px;
 }
 
@@ -445,27 +448,30 @@ h3 {
     display: flex;
     flex-direction: column;
     justify-self: right;
-    align-items: center; /*alinha os cards pro centro do círculo*/
-    justify-content: center; /* joga os cards pro centro do círculo*/
+    align-items: center;
+    /*alinha os cards pro centro do círculo*/
+    justify-content: center;
+    /* joga os cards pro centro do círculo*/
     padding: 40px;
     padding-right: 190px;
     padding-bottom: 90px;
     padding-top: 150px;
-    overflow: hidden; /*NECESSÁRIO para os circulos não estourarem a página*/
-    
-    
-    
+    overflow: hidden;
+    /*NECESSÁRIO para os circulos não estourarem a página*/
 }
 
 .circuloDourado-img {
     display: block;
-    position: absolute; /* retira o peso físico da imagem para ela não empurrar os textos */
-    width: 600px ;
-    height: 600px ;
+    position: absolute;
+    /* retira o peso físico da imagem para ela não empurrar os textos */
+    width: 600px;
+    height: 600px;
     max-width: 900px;
     z-index: 1;
-    opacity: 40%; /* deixa a imagem transparente*/
-    animation: girarEspelho 40s linear infinite; /* retuilizado da logo home*/
+    opacity: 40%;
+    /* deixa a imagem transparente*/
+    animation: girarEspelho 40s linear infinite;
+    /* retuilizado da logo home*/
 }
 
 .campo-cadastro {
@@ -483,7 +489,7 @@ h3 {
     padding: 0px;
     width: 65%;
     margin-bottom: 25px;
-    
+
 }
 
 .campo-cadastro input {
@@ -520,19 +526,21 @@ h3 {
 }
 
 .masterSword {
-    position: absolute; /* retira o peso físico da imagem para ela não empurrar os textos */
+    position: absolute;
+    /* retira o peso físico da imagem para ela não empurrar os textos */
     min-height: 100%;
     width: 400px;
     height: 400px;
     max-width: 45%;
     z-index: 1;
-    opacity: 70%; /* deixa a imagem transparente*/
+    opacity: 70%;
+    /* deixa a imagem transparente*/
     display: flex;
     justify-content: right;
     flex-direction: column;
     justify-self: right;
     right: 39.8%;
-    
+
 }
 
 .card-cadastro {
@@ -541,9 +549,10 @@ h3 {
     flex-direction: column;
     justify-self: right;
     position: relative;
-    
+
 }
-.container-cadastro{
+
+.container-cadastro {
     display: flex;
     justify-content: right;
     flex-direction: column;
@@ -559,18 +568,16 @@ h3 {
 .background-twilight {
     background-image: url('../assets/twilightMoon.png');
     /*background do Sobre Twilight*/
-    min-width: 100%;
-    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    min-height: 100vh;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
-    min-height: 100vh;
-}
+    
 
-.cardTwiliGold {
-    height: auto;
-    width: 900px;
 }
 
 .LogoTwilight {
@@ -579,13 +586,34 @@ h3 {
     height: auto;
     display: flex;
     justify-self: center;
+    align-self: center;
     margin-top: 10px;
     padding-top: 30px;
 }
 
-.txt-twilight h3 {
+.conteudo-twilight {
     display: flex;
-    justify-content: center;
-    color: #ffaf02f6;
-    font-size: 26px;
+    justify-content: left;
+    flex-direction:  column;
+    align-items: center;
+    align-items: end;
+    max-width: 625px;
+    margin: 5%;
+}
+
+.separadorTwili {
+    width: 100%;
+    height: auto;
+    max-width: 870px;
+    margin-top: -16px;
+    position: relative;
+    z-index: 2;
+}
+
+.txt-twilight h4 {
+    display: flex;
+    justify-content: left;
+    max-width: 825px;
+    padding: 1px;
+    
 }
