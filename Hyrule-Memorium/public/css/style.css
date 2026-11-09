@@ -231,19 +231,18 @@ h4 {
 
 .logoTriforceSombra {
     background-repeat: no-repeat;
-    background-size: 53.5%;
+    background-size: 58.9%;
     min-width: 85vh;
     min-height: 41vh;
-    width: 6vh;
-    height: 6vh;
+    height: 50vh;
     flex-direction: column;
     justify-self: center;
     transform-origin: top;
     transform: scaleY(-1); /* inverte a imagem de cabeça pra baixo*/
     position: absolute;
     z-index: 1;
-    top: 82.9vh;   /* controla a altura, aumente para descer, diminua para subir */
-    left: 57.66vh;
+    top: 98vh;   /* controla a altura, aumente para descer, diminua para subir */
+    left: 43.5vh;
 
 }
 
@@ -322,6 +321,10 @@ h3 {
 
 }
 
+.login{
+    padding-top: 20px;
+}
+
 .card-login {
     position: relative;
     overflow: hidden;
@@ -329,8 +332,8 @@ h3 {
 
 .telescopioMajora {
     max-width: 650px;
-    width: 600px;
-    height: 600px;
+    width: 650px;
+    height: 650px;
     display: flex;
     flex-direction: column;
     justify-self: left;
@@ -339,7 +342,7 @@ h3 {
     justify-content: center;
     /* joga os cards pro centro do círculo*/
     padding: 40px;
-    padding-top: 25px;
+    padding-top: 20px;
     overflow: hidden;
     /*NECESSÁRIO para os circulos não estourarem a página*/
 
@@ -350,8 +353,6 @@ h3 {
 .telescopioMajora-img {
     position: absolute;
     /* retira o peso físico da imagem para ela não empurrar os textos */
-    width: 600px;
-    height: 600px;
     z-index: 1;
     animation: girarEspelho 40s linear infinite;
     /* retuilizado da logo home*/
@@ -399,18 +400,18 @@ h3 {
     border-radius: 35px;
     padding: 10px;
     cursor: pointer;
-    background-color: #002bb9;
+    background-color: #002bb98f;
     font-family: 'HyliaSerif';
-    color: #ffb700f2;
+    color: #ffb700b2;
     font-size: 26px;
     transition: ease 0.96s;
-    opacity: 70%;
+    
 
 }
 
 .botao:hover {
     background: #261f42;
-    color: #fc00007b;
+    color: #fc0000f3;
 }
 
 .container h2 {
