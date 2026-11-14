@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" />
 </head>
 
-<body onload="listar()">
+<body>
 
     <!--Navbar-->
     <div class="background-cadastro">
@@ -97,8 +97,6 @@
 
 <script>
  
-  // Array para armazenar empresas cadastradas para validação de código de ativação 
-  let listaEmpresasCadastradas = [];
 
   function cadastrar() {
      aguardar();
@@ -106,23 +104,77 @@
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
     var nomeVar = nome_input.value;
-    var emailVar = email_input.value;
+    var emailVar = email_input.value.toLowerCase().trim(); // garantir que o email sempre seja com minusculas e sem espaços vazios
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
     var listaSenha= [senha_input.value];
     var caractereEspecial = "!@#$%*()_+=-',.;:~[{}]´`?/><|"
     var temCaractereEspecial = false;
-    
-    //var codigoVar = codigo_input.value;
-    //var idEmpresaVincular
 
-    // validações de senhas iguais
-    if(senhaVar != confirmacaoSenhaVar){ 
-      alert('As senhas não são iguais!')
+    //JSON para guardar e validar os dados do usuário
+    let usuarioDados = {
+    nome: nomeVar,
+    email: emailVar
+  };
+    
+    // Verificando se há algum campo em branco
+    if (
+      nomeVar == "" ||
+      emailVar == "" ||
+      senhaVar == "" ||
+      confirmacaoSenhaVar == "") {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Mensagem de erro para todos os campos em branco)";
+
+      //encerra o loading e para o cadastro
+      finalizarAguardar();
+      return false;
     }
 
-    // validações de senhas com caractere especial
+    // validações de senhas iguais
+    else if(senhaVar != confirmacaoSenhaVar){
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = "(As senhas não são iguais!)"
+      finalizarAguardar();
+      return false;
+    }
+
+    // validações para cadastrar o email e senha e forma correta
     else{
+
+
+      // validações se o email tem '@' e '.'
+      let stringEmail = usuarioDados.email;
+      let arroba = -1;
+      let ponto = -1;
+
+    for(let i = 0; i < usuarioDados.email.length; i++){
+      if(stringEmail[i] == "@"){
+        arroba = i;
+      }
+
+      if(stringEmail[i] == "." && arroba !== -1){
+        ponto = i;
+      }
+
+    }
+
+      if(arroba == -1){
+        cardErro.style.display = "block";
+        mensagem_erro.innerHTML = "(O email deve conter '@' !)"
+        finalizarAguardar();
+        return false;
+        }
+
+      if(ponto == -1){
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = "(O email deve conter '.' !)"
+      finalizarAguardar();
+      return false;
+      }
+
+     //validações de senhas com caractere especial
     for (let i = 0; i < senhaVar.length; i++) {
       var letraAtual = senhaVar[i];
 
@@ -132,31 +184,17 @@
     }
 
     if(temCaractereEspecial == false){
-      alert('A senha deve ter pelo menos um caractere especial!')
-    }
-    else{
-      alert('Senha válida, continuando cadastro...')
-    }
-  }
-    
-    // Verificando se há algum campo em branco
-    if (
-      nomeVar == "" ||
-      emailVar == "" ||
-      senhaVar == "" ||
-      confirmacaoSenhaVar == "" //||
-      //codigoVar == ""
-    ) {
       cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
-
+      mensagem_erro.innerHTML = "(A senha deve ter pelo menos um caractere especial!)"
       finalizarAguardar();
       return false;
-    } else {
+    }
+    else{
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = "(Senha válida, continuando cadastro...)"
       setInterval(sumirMensagem, 5000);
     }
-
+  }
 
     // Verificando se o código de ativação é de alguma empresa cadastrada
     //for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
