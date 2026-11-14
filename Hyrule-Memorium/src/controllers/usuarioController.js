@@ -1,13 +1,13 @@
 var usuarioModel = require("../models/usuarioModel");
-//var aquarioModel = require("../models/aquarioModel");
+
 
 function autenticar(req, res) {
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
 
-    if (email == undefined) {
+    if (email == undefined || email == "") { // adicionado para evitar inserções forçadas, ainda que "" seja um falsy value
         res.status(400).send("Seu email está indefinido!");
-    } else if (senha == undefined) {
+    } else if (senha == undefined || senha == "") { // adicionado para evitar inserções forçadas, ainda que "" seja um falsy value
         res.status(400).send("Sua senha está indefinida!");
     } else {
 
@@ -22,8 +22,7 @@ function autenticar(req, res) {
                                     res.json({
                                         id: resultadoAutenticar[0].id,
                                         email: resultadoAutenticar[0].email,
-                                        nome: resultadoAutenticar[0].nome,
-                                        senha: resultadoAutenticar[0].senha,
+                                        nome: resultadoAutenticar[0].nome
                                     });
                                 
                     } else if (resultadoAutenticar.length == 0) {

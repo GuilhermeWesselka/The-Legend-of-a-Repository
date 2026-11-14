@@ -90,7 +90,7 @@
     function entrar() {
         //aguardar();
 
-        var emailVar = email_input.value;
+        var emailVar = email_input.value.toLowerCase().trim(); // tira espaços vazios e padroniza minúsculo
         var senhaVar = senha_input.value;
 
         if (emailVar == "" || senhaVar == "") {
@@ -130,7 +130,7 @@
                    
 
                     setTimeout(function () {
-                        window.location = "./dashboard/cards.html";
+                        window.location = "./dashboard/dashboard.html";
                     }, 1000); // apenas para exibir o loading
 
                 });
