@@ -36,6 +36,12 @@ JOIN questionario q ON q.fkUsuario = u.id;
 SELECT u.email, q.data_envio, q.recomendacao FROM questionario q
 JOIN usuario u ON u.id = q.fkUsuario;
 
+-- buscando quantidade de usuários
+SELECT COUNT(*) total_usuarios FROM usuario;
+
+-- buscando quantidade de questionários
+SELECT COUNT(*) total_questionarios FROM questionario;
+
 -- comandos de emergência pra caso precise apagar o banco:
 /*
 TRUNCATE TABLE usuario;
