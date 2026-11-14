@@ -27,10 +27,7 @@ INSERT INTO questionario (motivacao, jogo, recomendacao, fkUsuario) VALUES
 
 SELECT * FROM usuario;
 SELECT * FROM questionario;
-TRUNCATE TABLE usuario;
-TRUNCATE TABLE questionario;
-DROP TABLE questionario;
-DROP TABLE usuario;
+
 -- buscando os usuários/jogos e motivação da escolha
 SELECT u.nome, q.jogo, q.motivacao from usuario u
 JOIN questionario q ON q.fkUsuario = u.id;
@@ -38,3 +35,11 @@ JOIN questionario q ON q.fkUsuario = u.id;
 -- buscando os emails/dtEnvio e o jogo Recomendado
 SELECT u.email, q.data_envio, q.recomendacao FROM questionario q
 JOIN usuario u ON u.id = q.fkUsuario;
+
+-- comandos de emergência pra caso precise apagar o banco:
+/*
+TRUNCATE TABLE usuario;
+TRUNCATE TABLE questionario;
+DROP TABLE questionario;
+DROP TABLE usuario;
+*/
