@@ -62,29 +62,95 @@
             <div class="graph">
                 <canvas id="grafico_jogos"></canvas>
             </div>
+            <p id="grafico_vazio" style="display: none; color: white; text-align: center; margin-top: 20px;">
+                Nenhuma memória cadastrada ainda.
+            </p>
         </div>
     </div>
 
     <script>
-        function obterDadosGrafico() {
+
+        function obterDadosGrafico(){
             fetch("/questionarios/contagem")
-            .then(function (resposta) {
-                if (resposta.ok){
-                    resposta.json().then(function (lista_contagem) {
-                        plotarGrafico(lista_contagem);
-                    });
-                    
-                }   
-                else {
-                    alert("Erro ao buscar os dados do gráfico " + resposta.status)
-                }
-            })
-            .catch(function(erro) {
-                console.error(erro);
-                alert("Erro de conexão ao carregar o gráfico")
-            });
-            
+                .then(function (resposta) {
+                    if (resposta.ok) {
+                        resposta.json().then(function (lista_contagem) {
+                            plotarGrafico(lista_contagem);
+                        });
+                    }
+                    else {
+                        alert ("Erro ao buscar os dados do grafico... " + resposta.status);
+                    }
+                })
+                .catch(function (erro) {
+                    console.error(erro)
+                        alert("Erro de conexão ao carregar o gráfico");
+                });
         }
+
+
+        function plotarGrafico(lista_contagem) {
+    var graficoVazio = document.getElementById("grafico_vazio");
+
+    if (lista_contagem.length == 0) {
+        graficoVazio.style.display = "block";
+        return;
+    }
+
+    graficoVazio.style.display = "none";
+
+    var labels = [];
+    var valores = [];
+
+    for (var i = 0; i < lista_contagem.length; i++) {
+        labels.push(lista_contagem[i].jogo);
+        valores.push(Number(lista_contagem[i].quantidade));
+    }
+
+    new Chart(document.getElementById("grafico_jogos"), {
+        type: "bar",
+        data: {
+            labels: labels,
+            datasets: [{
+                label: "Memórias",
+                data: valores,
+                backgroundColor: "#e6005a",
+                borderColor: "#f6ac00",
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                x: {
+                    ticks: {
+                        color: "#ffffff"
+                    },
+                    grid: {
+                        color: "#333333"
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 1,
+                        color: "#ffffff"
+                    },
+                    grid: {
+                        color: "#333333"
+                    }
+                }
+            }
+        }
+    });
+}
+
+
     </script>
 </body>
 
