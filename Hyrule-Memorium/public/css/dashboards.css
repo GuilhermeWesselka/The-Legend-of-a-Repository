@@ -29,7 +29,8 @@ body {
   width: 95%;
 }
 
-.dash-right .avisos .container .div-form #form_postagem {
+.dash-right .avisos .container .div-form #form_postagem,
+.dash-right .avisos .container .div-form #div_formulario {
   width: 95%;
 }
 
@@ -62,6 +63,14 @@ body {
   width: 120px;
 }
 
+.loading-div {
+  display: none;
+  justify-content: center;
+  padding: 10px;
+  color: #e6005a;
+  font-weight: 600;
+}
+
 .publicacao-btn-editar {
   cursor: pointer;
   font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -82,8 +91,12 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
-  border-bottom: 3px solid #e6005a;
+  background-color: #212124;
+  border-radius: 36px;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #f6ac00;
   padding: 20px;
+
 }
 
 .publicacao>*:not(:last-child) {
@@ -95,7 +108,7 @@ body {
 }
 
 .div-results .feed-container {
-  background-color: #212124;
+  background-color: transparent; /* é o fundo que deixa todos os comentário em uma coluna inteira */
   border-radius: 5px;
   margin-bottom: 80px;
 }

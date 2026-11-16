@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyrule Memorium | Editar Memória</title>
+
+    <link rel="stylesheet" href="./../css/dashboards.css">
+    <script src="../js/sessao.js"></script>
+
+    <link rel="preconnect" href="https://gstatic.com">
+    <link
+        href="https://googleapis.com"
+        rel="stylesheet">
+</head>
+
+<body onload="validarSessao(), listarInfosDeUm()" style="background-color: #161618;">
+
+    <div class="janela">
+        <div class="header-left">
+            <h1>Hyrule Memorium</h1>
+
+            <div class="hello">
+                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="./questionario.html">
+                    <h3>Questionário</h3>
+                </a>
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="./dashboard.html">
+                    <h3>Gráfico</h3>
+                </a>
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="./mural.html">
+                    <h3>Mural</h3>
+                </a>
+            </div>
+
+            <div class="btn-logout" onclick="limparSessao()">
+                <h3>Sair</h3>
+            </div>
+        </div>
+
+        <div class="dash-right">
+            <div class="avisos">
+                <div class="container">
+                    <h1>Editar memória</h1>
+
+                    <div class="div-form">
+                        <div id="div_formulario">
+                            <label>
+                                ID da memória:
+                                <br>
+                                <input id="ipt_id" type="text" style="color: rgb(150, 150, 150)" disabled>
+                            </label>
+
+                            <br><br>
+
+                            <label>
+                                Autor:
+                                <br>
+                                <input id="ipt_autor" type="text" style="color: rgb(150, 150, 150)" disabled>
+                            </label>
+
+                            <br><br>
+
+                            <label>
+                                Qual jogo marcou você?
+                                <br>
+                                <select id="select_jogo">
+                                    <option value="" selected disabled>Selecione um jogo</option>
+                                    <option value="The Legend of Zelda: Ocarina of Time">The Legend of Zelda: Ocarina of Time</option>
+                                    <option value="The Legend of Zelda: Majora's Mask">The Legend of Zelda: Majora's Mask</option>
+                                    <option value="The Legend of Zelda: The Wind Waker">The Legend of Zelda: The Wind Waker</option>
+                                    <option value="The Legend of Zelda: Twilight Princess">The Legend of Zelda: Twilight Princess</option>
+                                </select>
+                            </label>
+
+                            <br><br>
+
+                            <label>
+                                Por que esse jogo é especial para você?
+                                <br>
+                                <textarea id="textarea_motivacao"></textarea>
+                            </label>
+
+                            <br><br>
+
+                            <label>
+                                Qual jogo você recomenda? (opcional)
+                                <br>
+                                <input id="ipt_recomendacao" type="text">
+                            </label>
+
+                            <div id="div_aguardar" class="loading-div">
+                                <span>Carregando...</span>
+                            </div>
+
+                            <br>
+
+                            <button id="btn_salvar" type="button" onclick="editar()">Salvar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function listarInfosDeUm(){
+            const id_questionario = sessionStorage.ID_QUESTIONARIO_EDITANDO;
+
+            if(id_questionario == undefined || id_questionario == ""){
+                window.location = "./mural.html";
+                return;
+            }
+
+            aguardar();
+
+            fetch(`/questionarios/buscar/${id_questionario}`)
+            .then(function (resposta) {
+                if (resposta.ok) {
+                    resposta.json().then(function (memoria) {
+                    if (memoria.fkUsuario != sessionStorage.ID_USUARIO) {
+                        alert("Você não tem permissão para editar esta memória!");
+                        window.location = "./mural.html";
+                        return
+                    }
+
+                    document.getElementById("ipt_id").value = memoria.idQuestionario;
+                    document.getElementById("ipt_autor").value = memoria.nomeUsuario;
+                    document.getElementById("select_jogo").value = memoria.jogo;
+                    document.getElementById("textarea_motivacao").value = memoria.motivacao;
+                    document.getElementById("ipt_recomendacao").value = memoria.recomendacao || ""; //pode ir nulo já que o banco aceita e a regra de negócio atesta
+                    });
+                }
+                else {
+                    alert("Memória não encontrada! " + resposta.status);
+                    window.location = "./mural.html";
+                }
+                finalizarAguardar();
+            })
+            .catch(function (erro) {
+                console.error(erro);
+                alert("Erro de conexão ao carregar a memória");
+                finalizarAguardar();
+            });
+        }
+
+        // função editar
+        function editar(){
+
+            const id_questionario = sessionStorage.ID_QUESTIONARIO_EDITANDO;
+            const jogo = document.getElementById("select_jogo").value;
+            const motivacao = document.getElementById("textarea_motivacao").value.trim();
+            const recomendacao = document.getElementById("ipt_recomendacao").value.trim();
+            const btn_salvar = document.getElementById("btn_salvar");
+
+            if(jogo == ""){
+                alert("Selecione pelo menos um jogo!")
+            }
+            else if(motivacao.length < 10){
+                alert("Descreva mais um pouco! (No mínimo 10 caracteres)")
+            }
+            else if(motivacao.length > 1000){
+                alert("Vai com calma nessa motivação... (No máximo 1000 caracteres)")
+            }
+            else if (recomendacao.length > 45){
+                alert("Nem existe um zelda tão grande assim! (No máximo 45 caracteres)")
+            }
+
+            else{
+                aguardar();
+                btn_salvar.disabled = true;
+
+                const corpo = { // JSON PRA USAR NO FETCH ABAIXO
+                    jogo: jogo,
+                    motivacao: motivacao,
+                    recomendacao: recomendacao || null
+                };
+
+                fetch(`/questionarios/editar/${id_questionario}`, {
+                    method: "PUT",
+                    headers: { // avisa ao servidor que o pacote enviado é um JSON
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(corpo)
+                })
+                .then(function (resposta) {
+                    if (resposta.ok){
+                        alert("Memória atualizada com sucesso!");
+                        window.location = "./mural.html";
+                    }
+                    else{
+                        alert("Erro ao atualizar memória! " + resposta.status);
+                        finalizarAguardar();
+                        btn_salvar.disabled = false;
+                    }
+                })
+                .catch(function (erro) {
+                console.error(erro);
+                alert("Erro de conexão com o servidor.");
+                finalizarAguardar();
+                btn_salvar.disabled = false;
+                });
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -2,249 +2,216 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaTech | Avisos</title>
+    <!-- 1. TÍTULO ATUALIZADO -->
+    <title>Hyrule Memorium | Mural</title>
 
     <link rel="stylesheet" href="./../css/dashboards.css">
-    <link rel="stylesheet" href="./../css/estilo.css" />
     <script src="../js/sessao.js"></script>
-    <script src="./../js/alerta.js"></script>
+    <link rel="stylesheet" href="./../css/style.css">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
-        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        href="https://googleapis.com"
         rel="stylesheet">
 </head>
 
+<!-- Mantemos validarSessao() e atualizarFeed() ao carregar a página -->
 <body onload="validarSessao(), atualizarFeed()" style="background-color: #161618;">
 
     <div class="janela">
 
-
         <div class="header-left">
-
-            <h1>AquaTech</h1>
+            <!-- 2. NOME E MENU LATERAL ATUALIZADOS -->
+            <h1>Hyrule Memorium</h1>
 
             <div class="hello">
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
             </div>
 
+            <!-- Trocado de cards.html (Aquários) para questionario.html -->
             <div class="btn-nav-white">
-                <a href="cards.html">
-                    <h3>Aquários e Terrários</h3>
+                <a href="./questionario.html">
+                    <h3>Questionário</h3>
                 </a>
             </div>
 
             <div class="btn-nav-white">
                 <a href="./dashboard.html">
-                    <h3>Gráficos</h3>
+                    <h3>Gráfico</h3>
                 </a>
             </div>
 
             <div class="btn-nav">
-                <h3>Mural de Avisos</h3>
+                <h3>Mural</h3>
             </div>
 
             <div class="btn-logout" onclick="limparSessao()">
                 <h3>Sair</h3>
             </div>
-
         </div>
 
         <div class="dash-right">
-
-
             <div class="avisos">
-                <div id="alerta">
-                </div>
                 <div class="container">
-                    <h1>Publicar um aviso</h1>
+                    <h1>Conte sua memória de Hyrule</h1>
+
+                    <!-- 3. FORMULÁRIO SEM <form> (MESMA ESTRUTURA DO QUESTIONARIO.HTML) -->
                     <div class="div-form">
-                        <form id="form_postagem" method="post" onsubmit="return publicar()">
+                        <div id="div_formulario">
                             <label>
-                                Título:
+                                Qual jogo marcou você?
                                 <br>
-                                <input name="titulo" id="titulo" maxlength="100" type="text">
+                                <select id="select_jogo" name="jogo">
+                                    <option value="" selected disabled>Selecione um jogo</option>
+                                    <option value="The Legend of Zelda: Ocarina of Time">The Legend of Zelda: Ocarina of Time</option>
+                                    <option value="The Legend of Zelda: Majora's Mask">The Legend of Zelda: Majora's Mask</option>
+                                    <option value="The Legend of Zelda: The Wind Waker">The Legend of Zelda: The Wind Waker</option>
+                                    <option value="The Legend of Zelda: Twilight Princess">The Legend of Zelda: Twilight Princess</option>
+                                </select>
                             </label>
-                            <br>
-                            <br>
+
+                            <br><br>
+
                             <label>
-                                Descrição (máximo de 250 caracteres):
+                                Por que esse jogo é especial para você?
                                 <br>
-                                <textarea name="descricao" id="textarea_descricao" maxlength="250" rows="5"></textarea>
+                                <textarea id="textarea_motivacao" name="motivacao"></textarea>
                             </label>
-                            <br>
-                            <br>
-                            <button>Enviar</button>
-                        </form>
-                    </div>
-                    <h1>Mural de Avisos</h1>
-                    <div class="div-results">
-                        <div id="feed_container" class="feed-container">
+
+                            <br><br>
+
+                            <label>
+                                Qual jogo você recomenda? (opcional)
+                                <br>
+                                <input id="ipt_recomendacao" name="recomendacao" type="text">
+                            </label>
+
+                            <!-- Div de loading usada pelo aguardar() e finalizarAguardar() -->
+                            <div id="div_aguardar" class="loading-div">
+                                <span>Carregando...</span>
+                            </div>
+
+                            <br><br>
+
+                            <!-- Botão chama a mesma função publicar() do questionario.js -->
+                            <button id="btn_enviar" type="button" onclick="publicar()">Enviar memória</button>
                         </div>
+                    </div>
+
+                    <h1>Mural de memórias</h1>
+                    <br><br>
+
+                    <!-- 4. ÁREA DO FÓRUM E COMENTÁRIOS -->
+                    <div class="div-results">
+                        <!-- Onde os cards clonados vão aparecer -->
+                        <div id="feed_container" class="feed-container"></div>
+
+                        <!-- Mensagem caso o banco retorne vazio (status 204) -->
+                        <p id="feed_vazio" style="display: none; color: white; padding: 20px;">
+                            Nenhuma memória publicada ainda.
+                        </p>
+
+                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- 5. SCRIPTS EXTERNOS -->
+    <script src="../js/questionario.js"></script>
 
+    <script>
 
+        function atualizarFeed() {
+            fetch("/questionarios/listar")
+            .then(function (resposta) {
+                if (resposta.status == 204) {
+                    document.getElementById("feed_container").innerHTML = "";
+                    document.getElementById("feed_vazio").style.display = "block";
+                }
+                else if (resposta.ok){ 
+                    document.getElementById("feed_vazio").style.display = "none"; // esconde a frase de "nada publicado ainda" já que agora tem algo
 
+                    resposta.json().then(function (lista_memorias) {
+                        const feed = document.getElementById("feed_container");
+                        const id_usuario_logado = sessionStorage.ID_USUARIO;
+
+                        feed.innerHTML = "";
+
+                        for(let i = 0; i < lista_memorias.length; i ++){
+                            const memoria = lista_memorias[i];
+
+                            let recomendacao_texto = "Nenhuma";
+                            if(memoria.recomendacao != null && memoria.recomendacao != ""){
+                                recomendacao_texto = memoria.recomendacao;
+                            }
+
+                            let botoes_html = "";
+                            if(memoria.fkUsuario == id_usuario_logado){
+                                botoes_html = `
+                                <div class = "div-buttons">
+                                    <button class = "publicacao-btn-editar" onclick = "editar(${memoria.idQuestionario})">Editar</button>
+                                    <button class = "publicacao-btn-editar" onclick = "deletar(${memoria.idQuestionario})">Deletar</button>
+                                    </div>
+                                    `;
+                            }
+
+                            feed.innerHTML += `<div class = "publicacao">
+                                <span class = "publicacao-nome-autor">Autor: <b>${memoria.nomeUsuario}</b></span>
+                                <span class = "publicacao-jogo">Jogo: <b>${memoria.jogo}</b></span>
+                                <div class = "publicacao-descricao">${memoria.motivacao}</div>
+                                <div class = "publicacao-recomendacao">Recomenda: <b>${recomendacao_texto}</b></div>
+                                ${botoes_html}
+                                </div>
+                                `;   
+                        }
+                    })
+                }
+                else{
+                    alert("Erro ao carregar o mural!" + resposta.status);
+                }
+            })
+            .catch(function(erro) {
+                console.error(erro);
+                alert("Erro de conexão ao buscar o mural");
+            })
+        }
+
+        // função deletar comentário
+        function deletar(id_questionario) {
+            aguardar();
+
+            fetch(`/questionarios/deletar/${id_questionario}`, {
+                method: "DELETE",
+            })
+            .then(function (resposta) {
+                if(resposta.ok) {
+                    alert("Memória apagada com sucesso!")
+                    atualizarFeed();
+                }
+                else {
+                    alert("Erro ao apagar a memória!" + resposta.status);
+                }
+                finalizarAguardar();
+            })
+            .catch(function (erro) {
+                console.error(erro);
+                alert("Erro de conexão com o servidor");
+                finalizarAguardar();
+            });
+        }
+        
+        // função editar comentário
+        function editar(id_questionario){
+            sessionStorage.ID_QUESTIONARIO_EDITANDO = id_questionario;
+            window.location = "./edicao-questionario.html";
+        }
+
+    </script>
 </body>
 
 </html>
-
-<script>
-    
-    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-
-    function limparFormulario() {
-        document.getElementById("form_postagem").reset();
-    }
-
-    function publicar() {
-        var idUsuario = sessionStorage.ID_USUARIO;
-
-        var corpo = {
-            titulo: form_postagem.titulo.value,
-            descricao: form_postagem.descricao.value
-        }
-
-        fetch(`/avisos/publicar/${idUsuario}`, {
-            method: "post",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(corpo)
-        }).then(function (resposta) {
-
-            console.log("resposta: ", resposta);
-
-            if (resposta.ok) {
-                window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
-                window.location = "/dashboard/mural.html";
-                limparFormulario();
-                finalizarAguardar();
-            } else if (resposta.status == 404) {
-                window.alert("Deu 404!");
-            } else {
-                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
-        });
-
-        return false;
-
-    }
-
-    function editar(idAviso) {
-        sessionStorage.ID_POSTAGEM_EDITANDO = idAviso;
-        console.log("cliquei em editar - " + idAviso);
-        window.alert("Você será redirecionado à página de edição do aviso de id número: " + idAviso);
-        window.location = "/dashboard/edicao-aviso.html"
-
-    }
-
-    function deletar(idAviso) {
-        console.log("Criar função de apagar post escolhido - ID" + idAviso);
-        fetch(`/avisos/deletar/${idAviso}`, {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        }).then(function (resposta) {
-
-            if (resposta.ok) {
-                window.alert("Post deletado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
-                window.location = "/dashboard/mural.html"
-            } else if (resposta.status == 404) {
-                window.alert("Deu 404!");
-            } else {
-                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-        });
-    }
-
-    function atualizarFeed() {
-        fetch("/avisos/listar").then(function (resposta) {
-            if (resposta.ok) {
-                if (resposta.status == 204) {
-                    var feed = document.getElementById("feed_container");
-                    var mensagem = document.createElement("span");
-                    mensagem.innerHTML = "Nenhum resultado encontrado."
-                    feed.appendChild(mensagem);
-                    throw "Nenhum resultado encontrado!!";
-                }
-
-                resposta.json().then(function (resposta) {
-                    console.log("Dados recebidos: ", JSON.stringify(resposta));
-
-                    var feed = document.getElementById("feed_container");
-                    feed.innerHTML = "";
-                    for (let i = 0; i < resposta.length; i++) {
-                        var publicacao = resposta[i];
-
-                        // criando e manipulando elementos do HTML via JavaScript
-                        var divPublicacao = document.createElement("div");
-                        var spanID = document.createElement("span");
-                        var spanTitulo = document.createElement("span");
-                        var spanNome = document.createElement("span");
-                        var divDescricao = document.createElement("div");
-                        var divButtons = document.createElement("div");
-                        var btnEditar = document.createElement("button");
-                        var btnDeletar = document.createElement("button");
-
-
-                        spanID.innerHTML = "ID: <b>" + publicacao.idAviso + "</b>";
-                        spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
-                        spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
-                        divDescricao.innerHTML = "Descrição: <b>" + publicacao.descricao + "</b>";
-                        btnEditar.innerHTML = "Editar";
-                        btnDeletar.innerHTML = "Deletar";
-
-                        divPublicacao.className = "publicacao";
-                        spanTitulo.id = "inputNumero" + publicacao.idAviso;
-                        spanNome.className = "publicacao-nome";
-                        spanTitulo.className = "publicacao-titulo";
-                        divDescricao.className = "publicacao-descricao";
-
-                        divButtons.className = "div-buttons"
-
-                        btnEditar.className = "publicacao-btn-editar"
-                        btnEditar.id = "btnEditar" + publicacao.idAviso;
-                        btnEditar.setAttribute("onclick", `editar(${publicacao.idAviso})`);
-
-                        btnDeletar.className = "publicacao-btn-editar"
-                        btnDeletar.id = "btnDeletar" + publicacao.idAviso;
-                        btnDeletar.setAttribute("onclick", `deletar(${publicacao.idAviso})`);
-
-                        divPublicacao.appendChild(spanID);
-                        divPublicacao.appendChild(spanNome);
-                        divPublicacao.appendChild(spanTitulo);
-                        divPublicacao.appendChild(divDescricao);
-                        divPublicacao.appendChild(divButtons);
-                        divButtons.appendChild(btnEditar);
-                        divButtons.appendChild(btnDeletar);
-                        feed.appendChild(divPublicacao);
-                    }
-
-                    finalizarAguardar();
-                });
-            } else {
-                throw ('Houve um erro na API!');
-            }
-        }).catch(function (resposta) {
-            console.error(resposta);
-            finalizarAguardar();
-        });
-    }
-
-</script>
