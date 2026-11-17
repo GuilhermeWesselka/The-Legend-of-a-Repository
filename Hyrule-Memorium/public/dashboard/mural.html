@@ -14,7 +14,7 @@
 </head>
 
 <!-- Mantemos validarSessao() e atualizarFeed() ao carregar a página -->
-<body onload="validarSessao(), atualizarFeed()" style="background-color: #161618;">
+<body class="tema-ww" onload="validarSessao(), atualizarFeed()">
 
     <div class="janela">
 
@@ -105,7 +105,7 @@
                         <div id="feed_container" class="feed-container"></div>
 
                         <!-- Mensagem caso o banco retorne vazio (status 204) -->
-                        <p id="feed_vazio" style="display: none; color: white; padding: 20px;">
+                        <p id="feed_vazio" style="display: none;">
                             Nenhuma memória publicada ainda.
                         </p>
 

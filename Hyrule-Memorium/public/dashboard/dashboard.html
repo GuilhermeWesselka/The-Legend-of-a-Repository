@@ -18,7 +18,7 @@
 
 <!-- Valida o login e chama obterDadosGrafico() assim que a tela abre -->
 
-<body onload="validarSessao(), obterDadosGrafico()" style="background-color: #161618;">
+<body class="tema-ww" onload="validarSessao(), obterDadosGrafico()">
 
     <div class="janela">
         <!-- Menu lateral padronizado igual ao mural e ao questionário -->
@@ -52,7 +52,7 @@
 
         <!--área principal da dash, compõe o gráfico e as KPIs-->
         <div class="dash">
-            <h2 style="color: white; text-align: center; margin-top: 30px; font-size: 36px;">
+            <h2 class="titulo-grafico">
                 Jogos mais marcantes de Hyrule
             </h2>
             <div class="resumo-grafico" id="resumo_grafico">
@@ -84,7 +84,7 @@
             <div class="graph">
                 <canvas id="grafico_jogos"></canvas>
             </div>
-            <p id="grafico_vazio" style="display: none; color: white; text-align: center; margin-top: 20px;">
+            <p id="grafico_vazio" style="display: none;">
                 Nenhuma memória cadastrada ainda.
             </p>
         </div>
