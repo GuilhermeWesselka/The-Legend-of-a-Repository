@@ -57,9 +57,20 @@ body {
 
 .dash-right .avisos .div-form textarea {
   width: 95%;
-  border: 3px solid #e6005a;
-  background-color: white;
+  border: 3px solid #256275;
+  background-color: #0c2540;
+  color: #e8f4f8;
   border-radius: 5px;
+}
+
+.dash-right .avisos .div-form input,
+.dah-right .avisos .div-form select {
+  width: 95%;
+  border: 2px solid #256275;
+  background-color: #0c2540;
+  color: #e8f4f8;
+  border-radius: 8px;
+  padding: 6px;
 }
 
 .dash-right .avisos .div-form button {
@@ -70,8 +81,8 @@ body {
   font-weight: 600;
   font-size: 18px;
   padding: 10px 15px;
-  color: white;
-  background-color: #e6005a;
+  color: #041220;
+  background-color: #f3d078;
   width: 120px;
 }
 
@@ -79,7 +90,7 @@ body {
   display: none;
   justify-content: center;
   padding: 10px;
-  color: #e6005a;
+  color: #5ec2d7;
   font-family: 'BotwFont', serif;
   font-weight: 600;
   letter-spacing: 1px;
@@ -93,9 +104,14 @@ body {
   font-weight: 600;
   font-size: 14px;
   padding: 5px 8px;
-  color: white;
-  background-color: #e6005a;
+  color: #041220;
+  background-color: #f3d078;
   width: 80px;
+}
+
+.publicacao-btn-deletar {
+  background-color: #e6523a;
+  color: #ffffff;
 }
 
 .publicacao {
@@ -105,13 +121,15 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
-  background-color: #212124;
+  background-color: #0c2540;
   border-radius: 36px;
   margin-bottom: 20px;
-  border-bottom: 3px solid #f6ac00;
+  border-bottom: 3px solid #dfa82b;
   padding: 20px;
 
 }
+
+
 
 .publicacao>*:not(:last-child) {
   padding: 0 0 10px 0;
@@ -166,7 +184,7 @@ body {
   position: relative;
   top: 0;
   left: 20%;
-  background-color: #161618;
+  background-color: #041220;
   height: 100vh;
   overflow: auto;
 }
@@ -388,8 +406,8 @@ canvas {
   flex: 1;
   min-height: 120px;
   padding: 16px;
-  background-color: #212124;
-  border: 1px solid #f6ac00;
+  background-color: #0c2540;
+  border: 1px solid #dfa82b;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
@@ -399,14 +417,14 @@ canvas {
 
 .card-rotulo {
   font-family: 'BotwFont';
-  color: #e6b122;
+  color: #f3d078;
   font-size: 16px;
   letter-spacing: 1px;
 }
 
 .card-valor {
     font-family: 'HyliaSerif', serif;
-    color: #ffffff;
+    color: #aae5f0;
     font-size: 22px;
     line-height: 1.2;
     letter-spacing: 1px;
@@ -439,15 +457,15 @@ canvas {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  border-right: 3px solid #32b9cd;
-  background-color: #212124;
+  border-right: 3px solid #f3d078;
+  background-color: #09203a;
 }
 
 .dash-right {
   display: flex;
-  width: 70%;
+  width: 80%;
   height: fit-content;
-  background-color: #161618;
+  background-color: #041220;
   position: relative;
   top: 0;
   left: 25%;
@@ -457,7 +475,7 @@ canvas {
 
 .header-left h1 {
   font-family: 'HyliaSerif', serif;
-  color: #e6b122;
+  color: #f3d078;
   letter-spacing: 1px;
 }
 
@@ -468,7 +486,7 @@ canvas {
 }
 
 .hello h3 {
-  color: #e3b062;
+  color: #aae5f0;
   font-family: 'BotwFont', serif;
   font-weight: 300;
   font-size: 1.2rem;
@@ -481,24 +499,28 @@ canvas {
 
 .btn-nav {
   width: 40%;
-  color: white;
-  background-color: #e6005a;
+  color: #041220;
+  background-color: #f3d078;
   border-radius: 5px;
   text-align: center;
   padding: 2% 5%;
 }
 
+.btn-nav {
+  color: #041220;
+}
+
 .btn-nav-white {
   width: 40%;
-  background-color: white;
-  border: 3px solid #e6005a;
+  background-color: transparent;
+  border: 3px solid #5ec2d7;
   border-radius: 5px;
   text-align: center;
   padding: 2% 5%;
 }
 
 .btn-nav-white h3 {
-  color: #e6005a;
+  color: #aae5f0;
   font-family: 'BotwFont', serif;
   letter-spacing: 1px;
   padding: 0;
@@ -517,7 +539,7 @@ canvas {
   margin: 0;
   padding: 0;
   width: 20%;
-  background-color: #32b9cd;
+  background-color: #e6523a;
   color: white;
   border-radius: 10px;
   text-align: center;
@@ -527,3 +549,15 @@ canvas {
 }
 
 /* TEMA WIND WAKER */
+.tema-ww {
+  --ww-fundo:       #041220;  /* oceano profundo */
+  --ww-fundo-medio: #09203a;  /* menu lateral */
+  --ww-painel:      #0c2540;  /* cards e formulários */
+  --ww-agua:        #256275;  /* bordas suaves */
+  --ww-agua-clara:  #5ec2d7;  /* gráfico / hover */
+  --ww-espuma:      #aae5f0;  /* texto secundário */
+  --ww-dourado:     #f3d078;  /* destaque principal */
+  --ww-dourado-esc: #dfa82b;  /* borda dos cards */
+  --ww-vermelho:    #e6523a;  /* deletar / sair */
+  --ww-texto:       #e8f4f8;
+}
