@@ -25,6 +25,12 @@ body {
   align-items: center;
 }
 
+.dash-right .avisos .container>h1 {
+  font-family: 'HyliaSerif', serif;
+  color: #e6b122;
+  letter-spacing: 1px;
+}
+
 .dash-right .avisos .container .div-form {
   width: 95%;
 }
@@ -36,11 +42,17 @@ body {
 
 .dash-right .avisos .div-form label {
   width: 95%;
+  font-family: 'TriforceFont', serif;
+  letter-spacing: 1px;
 }
 
-.dash-right .avisos .div-form input {
+.dash-right .avisos .div-form input,
+.dash-right .avisos .div-form textarea,
+.dash-right .avisos .div-form select {
   width: 95%;
   border-radius: 5px;
+  font-family: 'TriforceFont', serif;
+  letter-spacing: 1px;
 }
 
 .dash-right .avisos .div-form textarea {
@@ -52,7 +64,7 @@ body {
 
 .dash-right .avisos .div-form button {
   cursor: pointer;
-  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'HyliaSerif', serif;
   border: 0;
   border-radius: 5px;
   font-weight: 600;
@@ -68,12 +80,14 @@ body {
   justify-content: center;
   padding: 10px;
   color: #e6005a;
+  font-family: 'BotwFont', serif;
   font-weight: 600;
+  letter-spacing: 1px;
 }
 
 .publicacao-btn-editar {
   cursor: pointer;
-  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'HyliaSerif', serif;
   border: 0;
   border-radius: 5px;
   font-weight: 600;
@@ -101,6 +115,25 @@ body {
 
 .publicacao>*:not(:last-child) {
   padding: 0 0 10px 0;
+}
+
+.publicacao-nome-autor,
+.publicacao-jogo,
+.publicacao-recomendacao {
+  font-family: 'BotwFont', serif;
+  letter-spacing: 1px;
+}
+
+.publicacao-descricao {
+  font-family: 'HyliaSerif', serif;
+  letter-spacing: 1px;
+  line-height: 1.4;
+}
+
+#feed_vazio,
+#grafico_vazio {
+  font-family: 'HyliaSerif', serif;
+  letter-spacing: 1px;
 }
 
 .div-results {
@@ -377,7 +410,9 @@ canvas {
 }
 
 .header-left h1 {
-  color: #32b9cd;
+  font-family: 'HyliaSerif', serif;
+  color: #e6b122;
+  letter-spacing: 1px;
 }
 
 .hello {
@@ -388,8 +423,10 @@ canvas {
 
 .hello h3 {
   color: #e3b062;
+  font-family: 'BotwFont', serif;
   font-weight: 300;
   font-size: 1.2rem;
+  letter-spacing: 1px;
 }
 
 .hello h3 span {
@@ -416,12 +453,16 @@ canvas {
 
 .btn-nav-white h3 {
   color: #e6005a;
+  font-family: 'BotwFont', serif;
+  letter-spacing: 1px;
   padding: 0;
   margin: 0;
 }
 
 .btn-nav h3,
 .btn-logout h3 {
+  font-family: 'BotwFont', serif;
+  letter-spacing: 1px;
   margin: 0;
   padding: 0;
 }

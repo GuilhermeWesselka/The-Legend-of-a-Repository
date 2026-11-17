@@ -67,6 +67,8 @@
 
     <script>
 
+        Chart.defaults.font.family = "'Barlow', 'Segoe UI', sans-serif";
+
         function obterDadosGrafico(){
             fetch("/questionarios/contagem")
                 .then(function (resposta) {
