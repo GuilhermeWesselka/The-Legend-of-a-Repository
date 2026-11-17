@@ -50,11 +50,36 @@
             </div>
         </div>
 
-        <!-- Área principal limpa: apenas o título e a caixa do gráfico -->
+        <!--área principal da dash, compõe o gráfico e as KPIs-->
         <div class="dash">
             <h2 style="color: white; text-align: center; margin-top: 30px; font-size: 36px;">
                 Jogos mais marcantes de Hyrule
             </h2>
+            <div class="resumo-grafico" id="resumo_grafico">
+                <div class="card-resumo">
+                    <span class="card-rotulo">Jogo mais votado</span>
+                    <div class="card-valor" id="jogo_mais_votado"></div>
+                    <span class="card-ajuda" id="detalhe_mais_votado">Carregando...</span>
+                </div>
+
+                <div class="card-resumo">
+                    <span class="card-rotulo">Menos lembrado</span>
+                    <div class="card-valor" id="jogo_menos_lembrado"></div>
+                    <span class="card-ajuda" id="detalhe_menos_lembrado">Carregando...</span>
+                </div>
+
+                <div class="card-resumo">
+                    <span class="card-rotulo">Total de Memórias</span>
+                    <div class="card-valor" id="total_memorias"></div>
+                    <span class="card-ajuda">Respostas recebidas</span>
+                </div>
+
+                <div class="card-resumo">
+                    <span class="card-rotulo">Jogos citados</span>
+                    <div class="card-valor" id="jogos_citados"></div>
+                    <span class="card-ajuda">Títulos diferentes</span>
+                </div>
+            </div>
 
             <div class="graph">
                 <canvas id="grafico_jogos"></canvas>
@@ -69,85 +94,207 @@
 
         Chart.defaults.font.family = "'Barlow', 'Segoe UI', sans-serif";
 
-        function obterDadosGrafico(){
+        function obterDadosGrafico() {
             fetch("/questionarios/contagem")
                 .then(function (resposta) {
                     if (resposta.ok) {
                         resposta.json().then(function (lista_contagem) {
+                            preencherResumo(lista_contagem);
                             plotarGrafico(lista_contagem);
                         });
                     }
                     else {
-                        alert ("Erro ao buscar os dados do grafico... " + resposta.status);
+                        alert("Erro ao buscar os dados do grafico... " + resposta.status);
                     }
                 })
                 .catch(function (erro) {
                     console.error(erro)
-                        alert("Erro de conexão ao carregar o gráfico");
+                    alert("Erro de conexão ao carregar o gráfico");
                 });
         }
 
+        // funções para os dados dos cards/KPIs da dash
+        function formatarJogos(lista) {
+            let txt = "";
 
-        function plotarGrafico(lista_contagem) {
-    var graficoVazio = document.getElementById("grafico_vazio");
-
-    if (lista_contagem.length == 0) {
-        graficoVazio.style.display = "block";
-        return;
-    }
-
-    graficoVazio.style.display = "none";
-
-    var labels = [];
-    var valores = [];
-
-    for (var i = 0; i < lista_contagem.length; i++) {
-        labels.push(lista_contagem[i].jogo);
-        valores.push(Number(lista_contagem[i].quantidade));
-    }
-
-    new Chart(document.getElementById("grafico_jogos"), {
-        type: "bar",
-        data: {
-            labels: labels,
-            datasets: [{
-                label: "Memórias",
-                data: valores,
-                backgroundColor: "#e6005a",
-                borderColor: "#f6ac00",
-                borderWidth: 2
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    display: false
+            for (let i = 0; i < lista.length; i++) {
+                if (i > 0) {
+                    txt += " • ";
                 }
-            },
-            scales: {
-                x: {
-                    ticks: {
-                        color: "#ffffff"
-                    },
-                    grid: {
-                        color: "#333333"
-                    }
-                },
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        stepSize: 1,
-                        color: "#ffffff"
-                    },
-                    grid: {
-                        color: "#333333"
-                    }
+                txt += lista[i].jogo;
+            }
+            return txt;
+
+        }
+        function calcularPct(quantidade, total) {
+            let pct = (quantidade / total) * 100;
+            return pct.toFixed(1).replace(".", ",") + "%"; // estiliza o número
+        }
+
+        function formatarMemorias(quantidade) {
+            if (quantidade == 1) {
+                return "1 memória";
+            }
+
+            return quantidade + " memórias";
+        }
+
+        function preencherResumo(lista_contagem) {
+            let resumo = document.getElementById("resumo_grafico");
+            let total = 0;
+
+            if (lista_contagem.length == 0) {
+                resumo.style.display = "none"; // se for zero não mostra nada
+                return;
+            }
+
+            resumo.style.display = "flex";
+
+            for (let i = 0; i < lista_contagem.length; i++) {
+                total += Number(lista_contagem[i].quantidade);
+            }
+
+            let maiorQuantidade = Number(lista_contagem[0].quantidade);
+            let menorQuantidade = Number(lista_contagem[0].quantidade);
+
+            for (let i = 0; i < lista_contagem.length; i++) {
+                let quantidade = Number(lista_contagem[i].quantidade);
+
+                if (quantidade > maiorQuantidade) {
+                    maiorQuantidade = quantidade;
+                }
+
+                if (quantidade < menorQuantidade) {
+                    menorQuantidade = quantidade;
                 }
             }
+
+            // lista para guardar os mais e menos votados
+            let maisVotados = [];
+            let menosLembrados = [];
+
+            for (let i = 0; i < lista_contagem.length; i++) {
+                let quantidade = Number(lista_contagem[i].quantidade);
+
+                if (quantidade == maiorQuantidade) {
+                    maisVotados.push(lista_contagem[i]);
+                }
+
+                if (quantidade == menorQuantidade) {
+                    menosLembrados.push(lista_contagem[i]);
+                }
+            }
+
+            let nomeMaisVotado = "";
+            let nomeMenosLembrado = "";
+
+            if (maisVotados.length > 1) {
+                nomeMaisVotado = "Empate: " + formatarJogos(maisVotados);
+            }
+            else {
+                nomeMaisVotado = maisVotados[0].jogo;
+            }
+
+            if (menosLembrados.length > 1) {
+                nomeMenosLembrado = "Empate: " + formatarJogos(menosLembrados);
+            }
+            else {
+                nomeMenosLembrado = menosLembrados[0].jogo;
+            }
+
+            // usado innerText para não conflitar com o banco de dados por causa de caracteres especiais
+            document.getElementById("jogo_mais_votado").innerText = nomeMaisVotado;
+            document.getElementById("jogo_menos_lembrado").innerText = nomeMenosLembrado;
+            document.getElementById("total_memorias").innerText = total;
+            document.getElementById("jogos_citados").innerText = lista_contagem.length;
+
+            if (lista_contagem.length == 1) {
+                document.getElementById("detalhe_mais_votado").innerText = "Único jogo citado até agora";
+                document.getElementById("detalhe_menos_lembrado").innerText = "Único jogo citado até agora";
+            }
+            else {
+                let detalheMais = formatarMemorias(maiorQuantidade);
+                let detalheMenos = formatarMemorias(menorQuantidade);
+
+                if (maisVotados.length > 1) {
+                    detalheMais += " cada • " + calcularPct(maiorQuantidade, total) + " cada";
+                }
+                else {
+                    detalheMais += " • " + calcularPct(maiorQuantidade, total) + " do total";
+                }
+
+                if (menosLembrados.length > 1) {
+                    detalheMenos += " cada • " + calcularPct(menorQuantidade, total) + " cada";
+                }
+                else {
+                    detalheMenos += " • " + calcularPct(menorQuantidade, total) + " do total";
+                }
+
+                document.getElementById("detalhe_mais_votado").innerText = detalheMais;
+                document.getElementById("detalhe_menos_lembrado").innerText = detalheMenos;
+            }
         }
-    });
-}
+
+        function plotarGrafico(lista_contagem) {
+            var graficoVazio = document.getElementById("grafico_vazio");
+
+            if (lista_contagem.length == 0) {
+                graficoVazio.style.display = "block";
+                return;
+            }
+
+            graficoVazio.style.display = "none";
+
+            var labels = [];
+            var valores = [];
+
+            for (var i = 0; i < lista_contagem.length; i++) {
+                labels.push(lista_contagem[i].jogo);
+                valores.push(Number(lista_contagem[i].quantidade));
+            }
+
+            new Chart(document.getElementById("grafico_jogos"), {
+                type: "bar",
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: "Memórias",
+                        data: valores,
+                        backgroundColor: "#e6005a",
+                        borderColor: "#f6ac00",
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        x: {
+                            ticks: {
+                                color: "#ffffff"
+                            },
+                            grid: {
+                                color: "#333333"
+                            }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                stepSize: 1,
+                                color: "#ffffff"
+                            },
+                            grid: {
+                                color: "#333333"
+                            }
+                        }
+                    }
+                }
+            });
+        }
 
 
     </script>

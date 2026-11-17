@@ -313,6 +313,7 @@ body {
   padding: 0 30% 0 30%;
 }
 
+/*Seção do gráfico*/
 .graph {
   width: 70%;
   margin: auto;
@@ -371,6 +372,51 @@ canvas {
 }
 
 /* PAGINA DOS GRÁFICOS 2023-2026 */
+
+/*Cards e KPIs do gráfico*/
+.resumo-grafico {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  width: 80%;
+  max-width: 1100px;
+  margin: 24px auto 0;
+}
+
+.card-resumo {
+  flex: 1;
+  min-height: 120px;
+  padding: 16px;
+  background-color: #212124;
+  border: 1px solid #f6ac00;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-wrap: anywhere;
+}
+
+.card-rotulo {
+  font-family: 'BotwFont';
+  color: #e6b122;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.card-valor {
+    font-family: 'HyliaSerif', serif;
+    color: #ffffff;
+    font-size: 22px;
+    line-height: 1.2;
+    letter-spacing: 1px;
+}
+
+.card-ajuda {
+    font-family: 'Barlow', 'Segoe UI', sans-serif;
+    color: #d8d8d8;
+    font-size: 14px;
+}
 
 .janela {
   display: flex;
