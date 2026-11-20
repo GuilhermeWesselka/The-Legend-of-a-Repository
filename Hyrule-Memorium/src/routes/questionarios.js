@@ -1,3 +1,6 @@
+// O nome "questionarios" foi mantido do web-data-viz e do banco.
+// No front, essa mesma área é exibida como Mural.
+
 var express = require("express");
 var router = express.Router();
 
