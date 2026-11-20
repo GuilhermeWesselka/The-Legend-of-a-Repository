@@ -145,6 +145,7 @@
                                 recomendacao_texto = memoria.recomendacao;
                             }
 
+                            // cria os botões que ficam nos comentários
                             let botoes_html = "";
                             if(memoria.fkUsuario == id_usuario_logado){
                                 botoes_html = `
@@ -155,6 +156,7 @@
                                     `;
                             }
 
+                            //cria as caixas dos comentários
                             feed.innerHTML += `<div class = "publicacao">
                                 <span class = "publicacao-nome-autor">Autor: <b>${memoria.nomeUsuario}</b></span>
                                 <span class = "publicacao-jogo">Jogo: <b>${memoria.jogo}</b></span>

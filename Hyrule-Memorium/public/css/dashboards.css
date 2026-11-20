@@ -561,3 +561,15 @@ canvas {
   --ww-vermelho:    #e6523a;  /* deletar / sair */
   --ww-texto:       #e8f4f8;
 }
+
+/*Dashboard Home*/
+.home {
+  background-image: url('../assets/dashHome.png');
+  display: flex;
+  min-width: 100vh;
+  background-size: 70vh;
+  background-position: left;
+  background-repeat: no-repeat;
+  overflow: hidden;
+
+}
