@@ -1,5 +1,4 @@
-// O nome "questionarios" foi mantido do web-data-viz e do banco.
-// No front, essa mesma área é exibida como Mural.
+// O Mural usa /questionarios para ler e publicar memórias. No AquaTech, usava /avisos.
 
 var express = require("express");
 var router = express.Router();

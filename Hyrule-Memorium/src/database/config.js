@@ -9,7 +9,8 @@ var mySqlConfig = {
     port: process.env.DB_PORT
 };
 
-function executar(instrucao, valores) { //adicionado 'valores' para aceitação dos parâmetros declarados por '?'
+// Antes: executar(instrucao). O Mural envia os valores de cada ? separados do texto SQL.
+function executar(instrucao, valores) {
 
     if (process.env.AMBIENTE_PROCESSO !== "producao" && process.env.AMBIENTE_PROCESSO !== "desenvolvimento") {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM .env OU dev.env OU app.js\n");
