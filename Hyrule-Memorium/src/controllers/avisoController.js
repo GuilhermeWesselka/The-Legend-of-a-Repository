@@ -1,3 +1,4 @@
+// Este controller recebia título e descrição. As memórias têm campos próprios em questionarioController.js.
 // var avisoModel = require("../models/avisoModel");
 
 // function listar(req, res) {

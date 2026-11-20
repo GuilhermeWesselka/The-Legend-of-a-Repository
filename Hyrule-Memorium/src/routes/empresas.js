@@ -1,3 +1,4 @@
+// O cadastro atual não chama /empresas porque o jogador não precisa de código de ativação.
 // var express = require("express");
 // var router = express.Router();
 

@@ -1,3 +1,6 @@
+// Projeto criado a partir do web-data-viz.
+// As rotas antigas foram desativadas; o site atual usa usuarios e questionarios.
+
 // var ambiente_processo = 'producao';
 var ambiente_processo = 'desenvolvimento';
 

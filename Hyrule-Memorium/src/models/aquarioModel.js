@@ -1,3 +1,4 @@
+// Estas consultas dependem da tabela aquario, exclusiva do banco AquaTech.
 // var database = require("../database/config");
 
 // function buscarAquariosPorEmpresa(empresaId) {

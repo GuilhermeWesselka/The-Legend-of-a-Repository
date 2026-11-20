@@ -1,3 +1,4 @@
+// Estas rotas listavam e cadastravam aquários, um recurso exclusivo do AquaTech.
 // var express = require("express");
 // var router = express.Router();
 

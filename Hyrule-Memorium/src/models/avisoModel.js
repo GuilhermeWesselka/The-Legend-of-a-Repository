@@ -1,3 +1,4 @@
+// O AquaTech guardava publicações em aviso; o Mural guarda memórias em questionario.
 // var database = require("../database/config");
 
 // function listar() {

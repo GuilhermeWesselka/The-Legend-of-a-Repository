@@ -1,3 +1,4 @@
+// Estas consultas alimentavam o gráfico de temperatura; o gráfico atual conta memórias.
 // var medidaModel = require("../models/medidaModel");
 
 // function buscarUltimasMedidas(req, res) {

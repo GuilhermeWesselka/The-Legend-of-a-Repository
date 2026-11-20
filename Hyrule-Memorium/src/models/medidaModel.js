@@ -1,3 +1,4 @@
+// A tabela medida guardava leituras dos sensores de cada aquário.
 // var database = require("../database/config");
 
 // function buscarUltimasMedidas(idAquario, limite_linhas) {

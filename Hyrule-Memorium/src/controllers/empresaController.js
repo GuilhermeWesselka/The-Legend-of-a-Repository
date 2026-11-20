@@ -1,3 +1,4 @@
+// O cadastro individual não consulta empresas por CNPJ.
 // var empresaModel = require("../models/empresaModel");
 
 // function buscarPorCnpj(req, res) {

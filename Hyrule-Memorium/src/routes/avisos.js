@@ -1,3 +1,4 @@
+// O app.js não monta /avisos: o Mural publica memórias por /questionarios.
 var express = require("express");
 var router = express.Router();
 

@@ -1,3 +1,4 @@
+// O gráfico atual conta jogos; não precisa das rotas de temperatura em tempo real.
 // var express = require("express");
 // var router = express.Router();
 

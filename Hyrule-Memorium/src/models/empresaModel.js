@@ -1,3 +1,4 @@
+// A tabela empresa fornecia os códigos de ativação usados no cadastro do AquaTech.
 // var database = require("../database/config");
 
 // function buscarPorId(id) {

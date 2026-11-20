@@ -1,3 +1,4 @@
+// O AquaTech cadastrava aquários por empresa; a comunidade cadastra memórias por usuário.
 // var aquarioModel = require("../models/aquarioModel");
 
 // function buscarAquariosPorEmpresa(req, res) {
