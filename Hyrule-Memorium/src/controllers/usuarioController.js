@@ -1,5 +1,5 @@
 var usuarioModel = require("../models/usuarioModel");
-
+// var aquarioModel = require("../models/aquarioModel"); // O login atual não consulta aquários.
 
 function autenticar(req, res) {
     var email = req.body.emailServer;
@@ -47,7 +47,7 @@ function cadastrar(req, res) {
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
-  
+    // var fkEmpresa = req.body.idEmpresaVincularServer; // No AquaTech, o cadastro vinculava o usuário à empresa.
 
     // Faça as validações dos valores
     if (nome == undefined) {
