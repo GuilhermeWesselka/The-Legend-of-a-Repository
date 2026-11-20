@@ -50,7 +50,12 @@
           </div>
         <div class="circuloDourado">
           <img class="circuloDourado-img" src="./assets/round-frame-play.svg" alt="circuloDourado">
-          <!-- <div class="campo">
+          <!-- O cadastro individual não pede CPF nem código da empresa.
+          <div class="campo">
+            <span>CPF:</span>
+            <input id="cpf_input" type="text" placeholder="Insira aqui seu CPF" />
+          </div>
+          <div class="campo">
             <span>Código de ativação:</span>
             <input id="codigo_input" type="text" placeholder="Insira aqui seu código" />
           </div>
@@ -98,7 +103,7 @@
 </html>
 
 <script>
- 
+  // let listaEmpresasCadastradas = []; // No AquaTech, listar() preenchia a lista na abertura da página.
 
   function cadastrar() {
      aguardar();
@@ -198,7 +203,22 @@
     }
   }
 
-    // Enviando o valor da nova input
+    // No AquaTech, o código digitado identificava a empresa que seria enviada no cadastro.
+    /*
+    var codigoVar = codigo_input.value;
+    var idEmpresaVincular
+    for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
+      if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
+        idEmpresaVincular = listaEmpresasCadastradas[i].id
+        console.log("Código de ativação válido.");
+        break;
+      } else {
+        cardErro.style.display = "block";
+        mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
+        finalizarAguardar();
+      }
+    }
+    */
     fetch("/usuarios/cadastrar", {
       method: "POST",
       headers: {

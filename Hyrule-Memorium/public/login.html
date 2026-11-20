@@ -129,9 +129,11 @@
                     sessionStorage.EMAIL_USUARIO = json.email; // guarda o mail num json
                     sessionStorage.NOME_USUARIO = json.nome; // guarda o nome do usuário
                     sessionStorage.ID_USUARIO = json.id; // guarda o id do usuário
-                   
+                    // sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+                    // O painel AquaTech precisava da lista de aquários; o Mural identifica o autor pelo ID.
 
                     setTimeout(function () {
+                        // window.location = "./dashboard/cards.html"; // Antes, o login abria o painel dos aquários.
                         window.location = "./dashboard/questionario.html";
                     }, 1000); // apenas para exibir o loading
 
