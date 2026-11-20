@@ -20,6 +20,7 @@ function executar(instrucao, valores) {
     return new Promise(function (resolve, reject) {
         var conexao = mysql.createConnection(mySqlConfig);
         conexao.connect();
+        // conexao.query(instrucao, function (erro, resultados) { // No original, só o texto SQL era enviado.
         conexao.query(instrucao, valores || [], function (erro, resultados) {
             conexao.end();
             if (erro) {
