@@ -21,7 +21,8 @@ function executar(instrucao, valores) {
         var conexao = mysql.createConnection(mySqlConfig);
         conexao.connect();
         // conexao.query(instrucao, function (erro, resultados) { // No original, só o texto SQL era enviado.
-        conexao.query(instrucao, valores || [], function (erro, resultados) {
+        conexao.query(instrucao, valores || [], function (erro, resultados) {   //'valores || []' foram adicionados para não quebrar o banco com apostrofo
+                                                                                // ou outros caracteres especiais, aceitando parametros '?' igual no dat-aqcu-ino
             conexao.end();
             if (erro) {
                 reject(erro);

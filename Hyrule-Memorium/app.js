@@ -2,7 +2,7 @@
 // As rotas antigas foram desativadas; o site atual usa usuarios e questionarios.
 
 var ambiente_processo = 'producao';
-//var ambiente_processo = 'desenvolvimento';
+var ambiente_processo = 'desenvolvimento';
 
 var caminho_env = ambiente_processo === 'producao' ? '.env' : '.env.dev';
 // Acima, temos o uso do operador ternário para definir o caminho do arquivo .env

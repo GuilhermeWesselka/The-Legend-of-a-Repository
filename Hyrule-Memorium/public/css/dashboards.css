@@ -746,7 +746,10 @@ canvas {
   background-color: #0c2540;
   border: 1px solid #dfa82b;
   border-radius: 20px;
+  opacity: 92%;
 }
+
+
 
 /* Formulário do mural e da edição */
 .tema-ww .div-form {
@@ -759,7 +762,7 @@ canvas {
   width: 100%;
 }
 
-/* Como tiramos os <br>, o label precisa ocupar a linha toda */
+
 .tema-ww .dash-right .avisos .div-form label {
   display: block;
   margin-bottom: 16px;
@@ -770,6 +773,7 @@ canvas {
   font-size: 16px;
   flex: 1;
   justify-content: center;
+  padding: 16px;
 }
 
 /* Caixa de seleção: mantém o marrom com dourado, mas maior e arredondada */
@@ -899,8 +903,8 @@ canvas {
 .tema-ww .comunidade-texto {
   max-width: 680px;
   margin: 0 auto 32px;
-  color: #e8f4f8;
-  font-family: 'Barlow', sans-serif;
+  color: #a88538;
+  font-family: 'HyliaSerif';
   font-size: 18px;
   text-align: center;
 }
@@ -928,7 +932,7 @@ canvas {
 
 /* Cada card usa uma moldura diferente, mas as duas são do tema oceânico */
 .tema-ww .card-memoria {
-  background-image: url('../assets/zelda_ww_mar_cartografia.svg');
+  background-image: url('../assets/zelda_ww_ocean_box.svg');
 }
 
 .tema-ww .card-comunidade:hover h2 {

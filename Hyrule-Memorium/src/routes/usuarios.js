@@ -13,3 +13,14 @@ router.post("/autenticar", function (req, res) {
 });
 
 module.exports = router;
+
+
+ //----------------------------------------colinha de CRUD no backend----------------------------------------
+    /* 
+       Create (Criar): Método HTTP POST → Comando SQL INSERT INTO (cria um novo registro).
+       Read (Ler): Método HTTP GET → Comando SQL SELECT (busca um ou vários registros).
+       Update (Atualizar): Métodos HTTP PUT ou PATCH → Comando SQL UPDATE (altera dados existentes).
+       Delete (Excluir): Método HTTP DELETE → Comando SQL DELETE FROM (remove um registro).
+    */                                  
+   //-------------------------------------------------------------------------------------------------------
+
