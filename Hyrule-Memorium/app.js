@@ -35,19 +35,15 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(cors());
 
-app.use("/", indexRouter);
-app.use("/usuarios", usuarioRouter);
-app.use("/avisos", avisosRouter);
-app.use("/medidas", medidasRouter);
-app.use("/aquarios", aquariosRouter);
-app.use("/empresas", empresasRouter);
-app.use("/questionarios", questionarioRouter);
 
 // Montagem das rotas legadas do web-data-viz desativadas junto com seus controllers.
-// app.use("/avisos", avisosRouter);
-// app.use("/medidas", medidasRouter);
-// app.use("/aquarios", aquariosRouter);
-// app.use("/empresas", empresasRouter);
+app.use("/", indexRouter);
+app.use("/usuarios", usuarioRouter);
+//app.use("/avisos", avisosRouter);
+//app.use("/medidas", medidasRouter);
+//app.use("/aquarios", aquariosRouter);
+//app.use("/empresas", empresasRouter);
+app.use("/questionarios", questionarioRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`
