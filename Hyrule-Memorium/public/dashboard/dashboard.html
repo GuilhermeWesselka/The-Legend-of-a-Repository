@@ -82,9 +82,16 @@
                 </div>
             </div>
 
-            <div class="graph">
-                <canvas id="grafico_jogos"></canvas>
+            <div class="graficos">
+                <div class="graph">
+                    <canvas id="grafico_jogos"></canvas>
+                </div>
+
+                <div class="grafico-rosca">
+                    <canvas id="grafico_distribuicao"></canvas>
+                </div>
             </div>
+
             <p id="grafico_vazio" style="display: none;">
                 Nenhuma memória cadastrada ainda.
             </p>
@@ -237,12 +244,15 @@
 
         function plotarGrafico(lista_contagem) {
             var graficoVazio = document.getElementById("grafico_vazio");
+            var areaGraficos = document.querySelector(".graficos");
 
             if (lista_contagem.length == 0) {
+                areaGraficos.style.display = "none";
                 graficoVazio.style.display = "block";
                 return;
             }
 
+            areaGraficos.style.display = "flex";
             graficoVazio.style.display = "none";
 
             var labels = [];
@@ -253,6 +263,7 @@
                 valores.push(Number(lista_contagem[i].quantidade));
             }
 
+            // Gráfico de barras (o que já existia)
             new Chart(document.getElementById("grafico_jogos"), {
                 type: "bar",
                 data: {
@@ -262,7 +273,8 @@
                         data: valores,
                         backgroundColor: "#5ec2d7",
                         borderColor: "#256275",
-                        borderWidth: 2
+                        borderWidth: 2,
+                        maxBarThickness: 80
                     }]
                 },
                 options: {
@@ -289,6 +301,45 @@
                             },
                             grid: {
                                 color: "#184a75"
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Cores da rosca. Se houver mais jogos que cores, elas se repetem.
+            var cores = ["#2a6f97", "#3a8fb7", "#5ec2d7", "#f3d078", "#dfa82b", "#9ccc65"];
+            var coresRosca = [];
+
+            for (var i = 0; i < valores.length; i++) {
+                coresRosca.push(cores[i % cores.length]);
+            }
+
+            // Gráfico de rosca com os mesmos dados
+            new Chart(document.getElementById("grafico_distribuicao"), {
+                type: "doughnut",
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: valores,
+                        backgroundColor: coresRosca,
+                        borderColor: "#041220",
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    cutout: "60%",
+                    plugins: {
+                        legend: {
+                            position: "bottom",
+                            labels: {
+                                color: "#e8f4f8",
+                                boxWidth: 12,
+                                font: {
+                                    family: "Barlow",
+                                    size: 11
+                                }
                             }
                         }
                     }

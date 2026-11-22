@@ -61,7 +61,6 @@
                         <div id="div_formulario">
                             <label>
                                 Qual jogo marcou você?
-                                <br>
                                 <select id="select_jogo" name="jogo">
                                     <option value="" selected disabled>Selecione um jogo</option>
                                     <option value="The Legend of Zelda: Ocarina of Time">The Legend of Zelda: Ocarina of Time</option>
@@ -71,19 +70,13 @@
                                 </select>
                             </label>
 
-                            <br><br>
-
                             <label>
                                 Por que esse jogo é especial para você?
-                                <br>
                                 <textarea id="textarea_motivacao" name="motivacao"></textarea>
                             </label>
 
-                            <br><br>
-
                             <label>
                                 Qual jogo você recomenda? (opcional)
-                                <br>
                                 <input id="ipt_recomendacao" name="recomendacao" type="text">
                             </label>
 
@@ -91,8 +84,6 @@
                             <div id="div_aguardar" class="loading-div">
                                 <span>Carregando...</span>
                             </div>
-
-                            <br><br>
 
                             <!-- Botão chama a mesma função publicar() do questionario.js -->
                             <button id="btn_enviar" type="button" onclick="publicar()">Enviar memória</button>
@@ -154,7 +145,7 @@
                                 botoes_html = `
                                 <div class = "div-buttons">
                                     <button class = "publicacao-btn-editar" onclick = "editar(${memoria.idQuestionario})">Editar</button>
-                                    <button class = "publicacao-btn-editar" onclick = "deletar(${memoria.idQuestionario})">Deletar</button>
+                                    <button class = "publicacao-btn-editar publicacao-btn-deletar" onclick = "deletar(${memoria.idQuestionario})">Deletar</button>
                                     </div>
                                     `;
                             }

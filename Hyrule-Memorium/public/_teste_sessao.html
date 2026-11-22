@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<body>
+    <script>
+        sessionStorage.ID_USUARIO = 1;
+        sessionStorage.NOME_USUARIO = "Rodrigo";
+        sessionStorage.EMAIL_USUARIO = "teste@teste.com";
+        sessionStorage.ID_QUESTIONARIO_EDITANDO = 1;
+
+        var parametros = new URLSearchParams(window.location.search);
+        var pagina = parametros.get("pagina") || "dashboard/mural.html";
+
+        window.location = pagina;
+    </script>
+</body>
+</html>
