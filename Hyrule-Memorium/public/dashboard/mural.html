@@ -13,15 +13,15 @@
     <link rel="stylesheet" href="./../css/dashboards.css">
     <script src="../js/sessao.js"></script>
     <link rel="stylesheet" href="./../css/style.css">
+    <link rel="stylesheet" href="./../css/hyryleDashboard.css">
 </head>
 
-<!-- Mantemos validarSessao() e atualizarFeed() ao carregar a página -->
-<body class="tema-ww" onload="validarSessao(), atualizarFeed()">
+<body class="main-mural" onload="validarSessao(), atualizarFeed()">
 
     <div class="janela">
 
         <div class="header-left">
-            <!-- 2. NOME E MENU LATERAL ATUALIZADOS -->
+           
             <h1>Hyrule Memorium</h1>
 
             <div class="hello">
@@ -72,12 +72,12 @@
 
                             <label>
                                 Por que esse jogo é especial para você?
-                                <textarea id="textarea_motivacao" name="motivacao"></textarea>
+                                <input id="ipt_motivacao" name="motivacao" placeholder="***"></input>
                             </label>
 
                             <label>
                                 Qual jogo você recomenda? (opcional)
-                                <input id="ipt_recomendacao" name="recomendacao" type="text">
+                                <input id="ipt_recomendacao" name="recomendacao" type="text" placeholder="***">
                             </label>
 
                             <!-- Div de loading usada pelo aguardar() e finalizarAguardar() -->
