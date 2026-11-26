@@ -576,45 +576,56 @@ h3 {
     background-size: cover;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    
-
+    align-items: center;
+    padding: 32px 5% 64px;
+    gap: 20px;
 }
 
 .LogoTwilight {
-    max-width: 900px;
+    max-width: 820px;
     width: 100%;
     height: auto;
-    display: flex;
-    justify-self: center;
-    align-self: center;
-    margin-top: 10px;
-    padding-top: 30px;
 }
 
 .conteudo-twilight {
     display: flex;
-    justify-content: left;
-    flex-direction:  column;
-    align-items: center;
-    align-items: end;
-    max-width: 625px;
-    margin: 5%;
-}
-
-.separadorTwili {
+    flex-wrap: wrap;
+    gap: 24px;
     width: 100%;
-    height: auto;
-    max-width: 870px;
-    margin-top: -16px;
-    position: relative;
-    z-index: 2;
+    max-width: 1200px;
 }
 
-.txt-twilight h4 {
+.bloco-twilight {
+    flex: 1;
+    flex-basis: 330px;
+    min-width: 0;
     display: flex;
-    justify-content: left;
-    max-width: 825px;
-    padding: 1px;
-    
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.imagem-twilight {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.txt-twilight {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+    border: 32px solid transparent;
+    border-image: url('../assets/twilightGoldenCard.svg') 14% 7% fill stretch;
+    background-color: #182124;
+    background-clip: padding-box;
+    color: #f5ead2;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.titulo-twilight {
+    font-size: 32px;
 }
