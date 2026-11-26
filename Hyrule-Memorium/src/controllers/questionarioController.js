@@ -145,7 +145,7 @@ function deletar(req, res){
     }
 }
 
-function contarPorJogo(req, res){
+function contarPorJogo(req, res){ // req vazio porque a função não recebe parâmetro
 
         questionarioModel.contarPorJogo()
         .then(function (resultado) {
@@ -159,6 +159,17 @@ function contarPorJogo(req, res){
     
 }
 
+function contarPorComentario(req, res){
+    questionarioModel.contarPorComentario()
+    .then(function (resultado) {
+        res.status(200).json(resultado);
+    })
+    .catch(function (erro) {
+        console.log(erro);
+        res.status(500).json(erro.sqlMessage)
+    })
+}
+
 
 module.exports = {
     cadastrar,
@@ -166,5 +177,6 @@ module.exports = {
     buscarPorId,
     editar,
     deletar,
-    contarPorJogo
+    contarPorJogo,
+    contarPorComentario
 };

@@ -1,6 +1,6 @@
 function limparFormulario() {
     // limpar o formulário depois de postar
-    document.getElementById("textarea_motivacao").value = "";
+    document.getElementById("ipt_motivacao").value = "";
     document.getElementById("ipt_recomendacao").value = "";
     document.getElementById("select_jogo").selectedIndex = 0; // limpa a seleção 
 }
@@ -9,7 +9,7 @@ function limparFormulario() {
 function publicar() {
     var idUsuario = sessionStorage.ID_USUARIO;
     var jogo = document.getElementById("select_jogo").value;
-    var motivacao = document.getElementById("textarea_motivacao").value.trim(); // trim() remove os caracteres vazios;
+    var motivacao = document.getElementById("ipt_motivacao").value.trim(); // trim() remove os caracteres vazios;
     var recomendacao = document.getElementById("ipt_recomendacao").value.trim();
     var btnEnviar = document.getElementById("btn_enviar");
 

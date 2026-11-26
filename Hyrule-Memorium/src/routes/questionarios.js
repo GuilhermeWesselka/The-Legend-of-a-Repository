@@ -20,6 +20,11 @@ router.get("/contagem", function(req, res) {
     questionarioController.contarPorJogo(req, res);
 });
 
+//contagem de comentários e usuários que mais comentam para o gráfico
+router.get("/top-ativos/", function(req, res) {
+    questionarioController.contarPorComentario(req, res);
+})
+
 // buscar uma resposta pelo id
 router.get("/buscar/:idQuestionario", function buscarPorId(req, res) {
     questionarioController.buscarPorId(req, res);

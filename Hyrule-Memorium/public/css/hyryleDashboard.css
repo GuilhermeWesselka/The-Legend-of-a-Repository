@@ -182,6 +182,7 @@
     background-position: center;
     background-repeat: no-repeat;
     min-height: 100vh;
+    background-attachment: fixed; /*deixa o fundo fixo pra não borrar na tela de mural*/
 }
 
 .dash-right .avisos .container .div-form #div_formulario {
@@ -209,7 +210,7 @@
 }
 
 /*Campo de uma linha*/
-.dash-right .avisos .div-form input {
+.dash-right .avisos .div-form textarea {
     padding: 12px 16px;
     border: 2px solid #256275;
     border-radius: 20px;
@@ -235,6 +236,58 @@
 }
 
 /*Mural de comentários*/
+.publicacao {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: stretch;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  background-color: #0c2540;
+  border-radius: 36px;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #dfa82b;
+  padding: 20px;
+
+}
+
+
+.publicacao-nome-autor,
+.publicacao-jogo,
+.publicacao-recomendacao {
+  font-family: 'BotwFont', serif;
+  letter-spacing: 1px;
+}
+
+.publicacao-descricao {
+  font-family: 'HyliaSerif', serif;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  padding-bottom: 5px;
+}
+
+#feed_vazio,
+#grafico_vazio {
+  font-family: 'HyliaSerif', serif;
+  letter-spacing: 1px;
+}
+
+.div-results {
+  width: 100%;
+}
+
+.div-results .feed-container {
+  background-color: transparent; /* é o fundo que deixa todos os comentário em uma coluna inteira */
+  border-radius: 5px;
+  margin-bottom: 80px;
+}
+
+.div-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
 .publicacao-nome-autor {
     color: #f3d078;
 }
@@ -263,11 +316,13 @@
 .publicacao-btn-editar {
     width: 100px;
     padding: 8px 12px;
+    border: 2px solid #f3d078;
     transition: 0.6s ease;
 }
 
 .publicacao-btn-editar:hover {
-    background-color: #dfa82b;
+    background-color: #041220;
+    color: #dfa82b;
 }
 
 .publicacao-btn-deletar {

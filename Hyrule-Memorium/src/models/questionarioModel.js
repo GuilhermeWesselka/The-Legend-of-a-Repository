@@ -21,6 +21,17 @@ function contarPorJogo(){
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
+// função do gráfico de usuários ativos, busca o nome e a quantidade de comentários (do maior ao menor)
+function contarPorComentario(){
+    var instrucaoSql = `
+    SELECT u.id, u.nome, COUNT(*) AS quantidade FROM questionario q
+    JOIN usuario u ON q.fkUsuario = u.id
+    GROUP BY u.id, u.nome
+    ORDER BY quantidade DESC`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
 
 // função usada na tela de edição de comentários para achar o usuário dono da postagem
 function buscarPorId(idQuestionario){
@@ -58,5 +69,6 @@ listar,
 buscarPorId,
 editar,
 deletar,
-contarPorJogo
+contarPorJogo,
+contarPorComentario
 };

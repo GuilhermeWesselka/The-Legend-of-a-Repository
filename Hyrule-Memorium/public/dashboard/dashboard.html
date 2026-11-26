@@ -20,7 +20,7 @@
 
 <!-- Valida o login e chama obterDadosGrafico() assim que a tela abre -->
 
-<body class="main-dash" onload="validarSessao(), obterDadosGrafico()">
+<body class="main-dash" onload="validarSessao(), obterDadosGrafico(), obterDadosUsuarios()">
 
     <div class="janela">
         <!-- Menu lateral padronizado igual ao mural e ao questionário -->
@@ -85,7 +85,7 @@
 
             <div class="graficos">
                 <div class="graph">
-                    <canvas id="grafico_jogos"></canvas>
+                    <canvas id="grafico_usuarios"></canvas>
                 </div>
 
                 <div class="grafico-rosca">
@@ -121,6 +121,71 @@
                 });
         }
 
+        function obterDadosUsuarios() {
+            fetch("/questionarios/top-ativos")
+            .then(function (resposta) {
+                if (resposta.ok) {
+                    return resposta.json().then(function (usuarios) {
+                        plotarUsuarios(usuarios);
+                    });
+                }
+                else {
+                    alert("Erro ao buscar o ranking... " + resposta.status);
+                }
+            })
+        }
+
+        function plotarUsuarios(usuarios){
+            var nomes = [];
+            var quantidade = [];
+            // looping para achar os usuários pelo vetor
+            for(let i = 0; i < usuarios.length; i++){
+                nomes.push(usuarios[i].nome);
+                quantidade.push(Number(usuarios[i].quantidade));
+            }
+            new Chart(document.getElementById("grafico_usuarios"), {
+        type: "bar",
+        data: {
+            labels: nomes,
+            datasets: [{
+                label: "Comentários",
+                data: quantidade,
+                backgroundColor: "#5ec2d7",
+                borderColor: "#256275",
+                borderWidth: 2,
+                maxBarThickness: 80
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                x: {
+                    ticks: {
+                        color: "#e8f4f8"
+                    },
+                    grid: {
+                        color: "#184a75"
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 1,
+                        color: "#e8f4f8"
+                    },
+                    grid: {
+                        color: "#184a75"
+                    }
+                }
+            }
+        }
+    });
+}
         // funções para os dados dos cards/KPIs da dash
         function formatarJogos(lista) {
             let txt = "";
@@ -133,7 +198,7 @@
             }
             return txt;
 
-        }
+        } //calculo de porcentagem dos votos
         function calcularPct(quantidade, total) {
             let pct = (quantidade / total) * 100;
             return pct.toFixed(1).replace(".", ",") + "%"; // estiliza o número
@@ -264,51 +329,9 @@
                 valores.push(Number(lista_contagem[i].quantidade));
             }
 
-            // Gráfico de barras (o que já existia)
-            new Chart(document.getElementById("grafico_jogos"), {
-                type: "bar",
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        label: "Memórias",
-                        data: valores,
-                        backgroundColor: "#5ec2d7",
-                        borderColor: "#256275",
-                        borderWidth: 2,
-                        maxBarThickness: 80
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            display: false
-                        }
-                    },
-                    scales: {
-                        x: {
-                            ticks: {
-                                color: "#e8f4f8"
-                            },
-                            grid: {
-                                color: "#184a75"
-                            }
-                        },
-                        y: {
-                            beginAtZero: true,
-                            ticks: {
-                                stepSize: 1,
-                                color: "#e8f4f8"
-                            },
-                            grid: {
-                                color: "#184a75"
-                            }
-                        }
-                    }
-                }
-            });
+       
 
-            // Cores da rosca. Se houver mais jogos que cores, elas se repetem.
+            // Cores da rosca | cores num vetor por recomendação para repetir as cores
             var cores = ["#2a6f97", "#3a8fb7", "#5ec2d7", "#f3d078", "#dfa82b", "#9ccc65"];
             var coresRosca = [];
 
@@ -347,6 +370,7 @@
                 }
             });
         }
+        
 
 
     </script>
