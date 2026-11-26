@@ -25,7 +25,7 @@
     <div class="navbar">
       <!-- Onde colocar a logo ou foto na nav -->
       <div class="nav-items">
-        <a href="#">Questionario</a>
+     
         <a href="./index.html">Pagina Inicial</a>
         <!-- Botões transformados diretamente em links estilizados -->
         <a href="./login.html" class="btn-login">Login</a>
@@ -97,7 +97,7 @@
 
         if (emailVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            alert('Mensagem de erro para todos os campos em branco');
             finalizarAguardar();
             return false;
         }

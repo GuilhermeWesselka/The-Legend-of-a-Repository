@@ -25,7 +25,7 @@
     <div class="navbar">
       <!-- Onde colocar a logo ou foto na nav -->
       <div class="nav-items">
-        <a href="#">Questionario</a>
+        
         <a href="./index.html">Pagina Inicial</a>
         <!-- Botões transformados diretamente em links estilizados -->
         <a href="./login.html" class="btn-login">Login</a>
@@ -169,14 +169,14 @@
 
       if(arroba == -1){
         cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "(O email deve conter '@' !)"
+        alert('O email deve conter "@" !')
         finalizarAguardar();
         return false;
         }
 
       if(ponto == -1){
       cardErro.style.display = "block";
-      mensagem_erro.innerHTML = "(O email deve conter '.' !)"
+      alert('O email deve conter "." !')
       finalizarAguardar();
       return false;
       }
@@ -192,13 +192,13 @@
 
     if(temCaractereEspecial == false){
       cardErro.style.display = "block";
-      mensagem_erro.innerHTML = "(A senha deve ter pelo menos um caractere especial!)"
+      alert('A senha deve ter pelo menos um caractere especial!')
       finalizarAguardar();
       return false;
     }
     else{
       cardErro.style.display = "block";
-      mensagem_erro.innerHTML = "(Senha válida, continuando cadastro...)"
+      alert('Senha válida, continuando cadastro...')
       setInterval(sumirMensagem, 5000);
     }
   }
